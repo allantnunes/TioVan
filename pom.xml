@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.7.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.bandtec</groupId>
 	<artifactId>TioVan</artifactId>
@@ -29,6 +30,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.azure</groupId>
+			<artifactId>azure-spring-boot</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -37,36 +43,28 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
 			<plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>
-        <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
-            <!-- App information -->
-            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
-            <appName>WEBAPP_NAME</appName>
-            <region>REGION</region>
-   
-            <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime> 
-            <deployment>
-                <resources>
-                    <resource>
-                        <directory>${project.basedir}/target</directory>
-                        <includes>
-                            <include>*.war</include>
-                        </includes>
-                    </resource>
-                </resources>
-            </deployment>
-        </configuration>
-    </plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>1.7.0</version>
+				<configuration>
+					<!-- Specify v2 schema -->
+					<schemaVersion>v2</schemaVersion>
+					<!-- App information -->
+					<subscriptionId>61790392-bd27-4d0d-809e-27eecd8a3019</subscriptionId>
+					<resourceGroup>TioVan</resourceGroup>
+					<appName>TioVan</appName>
+					<region>Central US</region>
+					<!-- Java Runtime Stack for App Service on Windows -->
+					<runtime>
+						<os>linux</os>
+						<javaVersion>1.8</javaVersion>
+						<webContainer>tomcat 9.0</webContainer>
+					</runtime>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
