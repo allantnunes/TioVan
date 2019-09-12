@@ -23,8 +23,6 @@ public class UsuarioController {
         System.out.println(this.usuarios);
     }
 
-
-
     @GetMapping("/usuarios/nome/{nomeDoUsuario}")
     public ResponseEntity<List<Usuario>> obterPorNome(@PathVariable("nomeDoUsuario") String nome) {
         List<Usuario> usuariosPorNome = new ArrayList<Usuario>();
@@ -73,6 +71,13 @@ public class UsuarioController {
 
         return ResponseEntity.ok(usuario);
     }
+    
+    @PostMapping("/cadastrar_usuario")
+    public void cadastrarUsuarioMongo(@RequestBody int idUsuario, String strNomeUsuario, 
+    		String strLoginUsuario, String strSenhaUsuario ) {
+    	
+    }
+    
 }
 
 
