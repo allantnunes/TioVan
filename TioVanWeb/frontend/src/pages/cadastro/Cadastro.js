@@ -70,7 +70,8 @@ export default class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="email">E-mail</label>
-                                                <input type="email" className="form-control" id="email" placeholder="email@exemplo.com" />
+                                                <input type="email" className="form-control" id="email" placeholder="email@exemplo.com" 
+                                                onChange={event => setEmail(event.target.value)}/>
                                             </div>
                                         </div>
                                         <div className="col-5">
