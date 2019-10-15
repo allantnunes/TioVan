@@ -1,8 +1,21 @@
 
 import React, { Component } from 'react';
+import React, {useState} from 'react';
+import api from './services/api';
+
+
 //import './Cadastro.css'
 export default class Cadastro extends Component {
     render() {
+
+        const [email, setEmail] = useState('');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            const response = await api.post('/motorista/cadastrar_motorista', email)
+
+        }
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
@@ -31,7 +44,7 @@ export default class Cadastro extends Component {
                     <div className="row ">
                         <div className="col-10 m-auto">
                             <div className="bg-warning rounded my-4 p-4">
-                                <form action="POST" method="" >
+                                <form onSubmit /*action="POST"*/ method="" >
                                     <div className="row">
                                         <div className="mx-auto">
                                             <h1>REGISTRE<span className="text-light">-</span>SE</h1>
@@ -91,7 +104,7 @@ export default class Cadastro extends Component {
                                     </div>
                                     <div className="row">
                                         <div className="mx-auto">
-                                            <button type="submit" className="btn btn-dark rounded" id="btnCadastrar">Cadastrar</button>
+                                            <button type="submit" className="btn" id="btnCadastrar">Cadastrar</button>
                                         </div>
                                     </div>
 

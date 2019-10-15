@@ -31,7 +31,7 @@ body, input, button {
   align-items: center;
 }
 
-.container {
+.content {
   width: 100%;
   background: #E3A723;
   margin-top: 80px;
@@ -41,9 +41,11 @@ body, input, button {
 
 .content > p {
   font-size: 22px;
-  
+  line-height: 30px;
+  margin-bottom: 30px;
 }
 
-.logo{
-  margin: 30px 30px;
+.content form {
+  display: flex;
+  flex-direction: column;
 }
