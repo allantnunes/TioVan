@@ -1,35 +1,21 @@
-import React, { Component } from 'react';
-import axios from 'axios';
 
-class Cadastro extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            nome:'',
-            apelido:'',
-            email:'',
-            numCelular:'',
-            cpf:'',
-            genero:''
+import React, { Component } from 'react';
+import React, {useState} from 'react';
+import api from './services/api';
+
+
+//import './Cadastro.css'
+export default class Cadastro extends Component {
+    render() {
+
+        const [email, setEmail] = useState('');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+
+            const response = await api.post('/motorista/cadastrar_motorista', email)
 
         }
-    }
-    changeHandler = e=>{
-        this.setState({[e.target.id]:e.target.value});
-    }
-    submitHandler = e=>{
-        e.preventDefault();
-        console.log(this.state);
-        axios.post('https://localhost:8080/motorista/cadastrar_motorista',this.state)
-        .then(response=>{
-            console.log(response);
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-    }
-    render() {
-        const{nome,apelido,email,numCelular,cpf,genero} = this.state
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
@@ -58,7 +44,7 @@ class Cadastro extends Component {
                     <div className="row ">
                         <div className="col-10 m-auto">
                             <div className="bg-warning rounded my-4 p-4">
-                                <form onSubmit={this.submitHandler}>
+                                <form onSubmit /*action="POST"*/ method="" >
                                     <div className="row">
                                         <div className="mx-auto">
                                             <h1>REGISTRE<span className="text-light">-</span>SE</h1>
@@ -68,14 +54,14 @@ class Cadastro extends Component {
                                     <div className="row">
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
-                                                <label htmlFor="nome">Nome</label>
-                                                <input type="text" className="form-control" id="nome" onChange={this.changeHandler} placeholder="Fulano da Silva" />
+                                                <label htmlhtmlFor="nome">Nome</label>
+                                                <input type="text" className="form-control" id="nome" placeholder="Fulano da Silva" />
                                             </div>
                                         </div>
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="apelido">Apelido</label>
-                                                <input type="text" className="form-control" id="apelido"  onChange={this.changeHandler} placeholder="Tio Fulano" />
+                                                <input type="text" className="form-control" id="apelido" placeholder="Tio Fulano" />
                                             </div>
                                         </div>
 
@@ -84,13 +70,15 @@ class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="email">E-mail</label>
-                                                <input type="email" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
+                                                <input type="email" className="form-control" id="email" placeholder="email@exemplo.com" 
+                                                onChange={event => setEmail(event.target.value)}/>
                                             </div>
                                         </div>
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="numCelular">Celular</label>
-                                                <input type="text" className="form-control" id="numCelular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
+                                                <input type="text" className="form-control" id="numCelular"
+                                                    placeholder="(11) 4002-8922" />
                                             </div>
                                         </div>
 
@@ -99,14 +87,14 @@ class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="cpf">CPF</label>
-                                                <input type="text" className="form-control" id="cpf" onChange={this.changeHandler} placeholder="507.245.798-12" />
+                                                <input type="text" className="form-control" id="cpf" placeholder="507.245.798-12" />
                                             </div>
                                         </div>
                                         <div className="col-3">
                                             <div className="form-group">
                                                 <label htmlFor="genero">Gênero</label>
-                                                <select className="form-control" id="genero" onChange={this.changeHandler}>
-                                                    <option value="0" defaultValue disabled>Selecionar</option>
+                                                <select className="form-control" id="genero">
+                                                    <option value="0" selected disabled>Selecionar</option>
                                                     <option value="MASCULINO">Masculino</option>
                                                     <option value="FEMININO">Feminino</option>
                                                     <option value="NAO_BINARIO">Não-Binário</option>
@@ -127,7 +115,6 @@ class Cadastro extends Component {
                     </div>
                 </div >
             </div>
-        );
+        )
     }
 }
-export default Cadastro;
