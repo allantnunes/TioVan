@@ -41,12 +41,10 @@ public class Application {
 		MongoCollection<Document> collectionDependente = database.getCollection("Dependente");
 		MongoCollection<Document> collectionInstituicao = database.getCollection("Instituicao");
 
-		
 		FindIterable<Document> docs = collection.find();
 		  
 		for(Document doc : docs) {
 		System.out.println(doc.getString("strNomeUsuario")); }
-		
 
 		Gson gson = new Gson();
 
@@ -68,8 +66,7 @@ public class Application {
 			Document doc = collectionDependente.find(queryDependente).first();
 			jsonResultado = doc.toJson();
 			System.out.println("DEPENDENTE " + jsonResultado);
-			
-			
+						
 			Instituicao instituicao = new Instituicao("Escola Nova Meta", new Endereco("Rua", "Joaquim Afonso de Souza", "123", "B", "São Paulo", "Vila Celeste", "SP", "02548-148"), "3670-4221");
 			Document docInstituicao = UtilidadesMongo.converteObjetoParaDocument(instituicao);
 			ObjectId idInstituicao = ObjectId.get();

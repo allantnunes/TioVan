@@ -1,5 +1,7 @@
 package br.com.bandtec.TioVan.controllers;
 
+import java.util.ArrayList;
+
 import org.bson.Document;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +24,19 @@ public class MotoristaController {
 	@PostMapping("/motorista/cadastrar_motorista")
 	public ResponseEntity<String> cadastrarMotorista(@RequestBody Motorista motorista){
 		
-		System.out.println("Chamou o método ----");
-		System.out.println("Apelido Motorista: "+ motorista.getApelido());
-		System.out.println("Nome Motorista: "+ motorista.getNome());
+		System.out.println("--- Cadastro de Motorista ---");
+		System.out.println("Apelido: "+ motorista.getApelido());
+		System.out.println("Nome: "+ motorista.getNome());
+		System.out.println("Gênero: "+ motorista.getGenero());
+		System.out.println("E-mail: "+ motorista.getEmail());
+		System.out.println("CPF: "+motorista.getCpf());
+		
+		if(motorista.getPassageiros() == null) {
+			motorista.setPassageiros(new ArrayList<String>());
+		}
+		if(motorista.getClientes() == null) {
+			motorista.setClientes(new ArrayList<String>());
+		}
 		
 		try {
 			Document docMotorista = UtilidadesMongo.converteObjetoParaDocument(motorista);

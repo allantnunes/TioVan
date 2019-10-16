@@ -6,9 +6,7 @@ import br.com.bandtec.TioVan.models.Genero;
 
 public abstract class Pessoa {
 	
-	@JsonProperty
 	private String nome;
-	@JsonProperty
 	private Genero genero;
 	
 	public Pessoa(String nome, Genero genero) {

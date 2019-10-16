@@ -8,7 +8,7 @@ class Cadastro extends Component {
             nome:'',
             apelido:'',
             email:'',
-            numCelular:'',
+            celular:'',
             cpf:'',
             genero:''
 
@@ -20,7 +20,7 @@ class Cadastro extends Component {
     submitHandler = e=>{
         e.preventDefault();
         console.log(this.state);
-        axios.post('https://localhost:8080/motorista/cadastrar_motorista',this.state)
+        axios.post('http://localhost:8080/motorista/cadastrar_motorista',this.state)
         .then(response=>{
             console.log(response);
         })
@@ -46,7 +46,7 @@ class Cadastro extends Component {
                                     <a href="#" className="nav-link"><span className="text-light">Início</span></a>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="btn btn-secondary rounded" type="submit">entrar</button>
+                                    <button className="btn btn-secondary rounded" type="submit">Entrar</button>
                                 </li>
                             </ul>
                         </div>
@@ -89,8 +89,8 @@ class Cadastro extends Component {
                                         </div>
                                         <div className="col-5">
                                             <div className="form-group">
-                                                <label htmlFor="numCelular">Celular</label>
-                                                <input type="text" className="form-control" id="numCelular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
+                                                <label htmlFor="celular">Celular</label>
+                                                <input type="text" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
                                             </div>
                                         </div>
 
@@ -106,7 +106,7 @@ class Cadastro extends Component {
                                             <div className="form-group">
                                                 <label htmlFor="genero">Gênero</label>
                                                 <select className="form-control" id="genero" onChange={this.changeHandler}>
-                                                    <option value="0" defaultValue disabled>Selecionar</option>
+                                                    <option value="0" selected disabled>Selecionar</option>
                                                     <option value="MASCULINO">Masculino</option>
                                                     <option value="FEMININO">Feminino</option>
                                                     <option value="NAO_BINARIO">Não-Binário</option>
