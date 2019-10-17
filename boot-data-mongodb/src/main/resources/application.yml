@@ -5,5 +5,5 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://172.16.0.21:27017
-      database: boot-mongodb
+      uri: mongodb+srv://allantnunes:tiovan2019@tiovan-hfphq.azure.mongodb.net/test?retryWrites=true&w=majority
+      database: dbTioVan
