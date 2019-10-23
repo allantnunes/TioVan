@@ -1,9 +1,0 @@
-
-server:
-  port: 7000
-  
-spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://allantnunes:tiovan2019@tiovan-hfphq.azure.mongodb.net/test?retryWrites=true&w=majority
-      database: dbTioVan
