@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 *{
   margin: 0;
@@ -22,7 +22,7 @@ body, input, button {
   font-size: 14px;
 }
 
-.container {
+.containerLogin {
   margin: 100px auto 0;
   max-width: 450px;
   width: 100%;
@@ -31,7 +31,7 @@ body, input, button {
   align-items: center;
 }
 
-.content {
+.contentLogin {
   width: 100%;
   background: #E3A723;
   margin-top: 80px;
@@ -39,13 +39,13 @@ body, input, button {
   padding: 50px;
 }
 
-.content > p {
+.contentLogin > p {
   font-size: 22px;
   line-height: 30px;
   margin-bottom: 30px;
 }
 
-.content form {
+.contentLogin form {
   display: flex;
   flex-direction: column;
-} */
+}

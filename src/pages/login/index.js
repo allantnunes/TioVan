@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import api from '../../services/api';
-import '../../pages/login/Login.css';
-import Routes from '../../routes';
-import logo from '../../public/img/TioVanLogo.PNG'
+import '../../pages/login/App.css';
+
 
 export default function Login({ history }) {
 
@@ -17,32 +16,25 @@ export default function Login({ history }) {
         const { _id } = response.data;
 
         localStorage.setItem('user', _id);
-        
+
         history.push('/motorista/dashboard');
 
     }
     return (
-        <div className="container">
-            <img src={logo} />
-            <div className="content">
-            <Routes />
+        <>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">E-mail</label>
                 <input type="email" id="email" placeholder="E-mail"
-                value={email} 
-                onChange={event => setEmail(event.target.value)} />
+                    value={email}
+                    onChange={event => setEmail(event.target.value)} />
                 <label thmlFor="senha">Senha</label>
                 <input type="password" id="senha" placeholder="Digite a senha"
-                value={senha}
-                onChange={event => setSenha(event.target.value)} />
+                    value={senha}
+                    onChange={event => setSenha(event.target.value)} />
             </form>
-            <button className="btn" type="submit">Entrar</button>
-            </div>
-        </div>
+            <button className="btnLogin" type="submit">Entrar</button>
+
+        </>
     );
 }
-
-
-
-

@@ -1,11 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Routes from './routes';
+// import logo from '../public/img/TioVanLogo.PNG';
 
 
 
+function App() {
 
-export default class App extends Component {
-  render() {
-    return <Routes />;
-  }
-};
+  return (
+      <div className="container">
+          {/* <img src={logo} /> */}
+          <div className="content">
+              <Routes />
+          </div>
+      </div>
+  );
+}
+
+export default App;
+
+
