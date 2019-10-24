@@ -11,10 +11,13 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.2.0"
   },
+  "devDependencies": {
+    "react-scripts": "1.0.10"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-scripts build && mv build server",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -31,5 +34,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
