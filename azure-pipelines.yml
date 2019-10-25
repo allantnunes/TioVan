@@ -19,15 +19,10 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
-- task: PublishBuildArtifacts@1
+- task: ArchiveFiles@2
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Visual Studio Enterprise (c6c49e50-d24a-486d-9881-b6b5a61abe81)-9506'
-    appType: 'webAppLinux'
-    WebAppName: 'tiovan'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/build'
+    rootFolderOrFile: '$(Build.BinariesDirectory)/build'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
+    replaceExistingArchive: true
