@@ -26,12 +26,8 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
     replaceExistingArchive: true
-- task: ArchiveFiles@2
+- task: PublishBuildArtifacts@1
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/tiovan.zip'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: |
-      $(Build.ArtifactStagingDirectory)
-      - task: PublishBuildArtifacts@1 inputs: PathtoPublish:
-    replaceExistingArchive: true
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
