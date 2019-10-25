@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Navbar from '../snippets/navbar';
 
 export default class Cadastro extends Component {
     constructor(props){
@@ -32,26 +33,7 @@ export default class Cadastro extends Component {
         const{nome,apelido,email,numCelular,cpf,genero} = this.state
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
-                    <a className="navbar-brand font-weight-bold" href="#"><span className="text-dark">Tio</span>Van</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
-                        aria-expanded="false" aria-label="Alterna navegação">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbar">
-                        <div className="ml-auto mr-2">
-                            <ul className="navbar-nav">
-                                <li className="nav-item mr-1">
-                                    <a href="#" className="nav-link"><span className="text-light">Início</span></a>
-                                </li>
-                                <li className="nav-item">
-                                    <button className="btn btn-secondary rounded" type="submit">Entrar</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                <Navbar/>
                 <div className="overlay-div"></div>
 
                 <div className="container">
@@ -117,7 +99,7 @@ export default class Cadastro extends Component {
                                     </div>
                                     <div className="row">
                                         <div className="mx-auto">
-                                            <button type="submit" className="btn" id="btnCadastrar">Cadastrar</button>
+                                            <button type="submit" className="btn btn-primary" id="btnCadastrar">Cadastrar</button>
                                         </div>
                                     </div>
 
