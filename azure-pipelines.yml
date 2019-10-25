@@ -20,6 +20,10 @@ steps:
     npm run build
     ls server
     ls ..
+    pwd
+    ls ../a
+    ls ../s
+    ls ../b
   displayName: 'npm install and build'
 - task: ArchiveFiles@2
   inputs:
