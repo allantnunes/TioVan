@@ -27,11 +27,12 @@ steps:
   displayName: 'npm install and build'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '/home/vsts/work/1/s/server/**'
+    rootFolderOrFile: '/home/vsts/work/1/s/server'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
     replaceExistingArchive: true
+    verbose: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
