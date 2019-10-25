@@ -32,7 +32,7 @@ export default class Cadastro extends Component {
     render() {
         const{nome,apelido,email,numCelular,cpf,genero} = this.state
         return (
-            <div>
+            <>
                 <Navbar/>
                 <div className="overlay-div"></div>
 
@@ -108,7 +108,7 @@ export default class Cadastro extends Component {
                         </div>
                     </div>
                 </div >
-            </div>
+            </>
         );
     }
 }

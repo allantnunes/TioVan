@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
-import '../../pages/login/App.css';
+import '../login/App.css';
 
 
 export default function Login({ history }) {
@@ -22,7 +22,7 @@ export default function Login({ history }) {
     }
     return (
         <>
-            <h1>Login</h1>
+            {/* <h1>Login</h1> */}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">E-mail</label>
                 <input type="email" id="email" placeholder="E-mail"
@@ -33,6 +33,7 @@ export default function Login({ history }) {
                     value={senha}
                     onChange={event => setSenha(event.target.value)} />
             </form>
+            
             <button className="btnLogin" type="submit">Entrar</button>
 
         </>

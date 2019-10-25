@@ -1,19 +1,24 @@
 import React from 'react';
 import Routes from './routes';
-// import logo from '../public/img/TioVanLogo.PNG';
-
-
+// import logo from '../src/public/img/Logo.png';
+import '../src/pages/login/App.css';
+import Navbar from '../src/pages/snippets/navbar';
 
 function App() {
 
-  return (
-      <div className="container">
-          {/* <img src={logo} /> */}
-          <div className="content">
-              <Routes />
-          </div>
-      </div>
-  );
+    return (
+
+        <>
+            <Navbar />
+
+            <div className="containerLogin">
+                <div className="contentLogin">
+                    <div className="logo" />
+                    <Routes />
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default App;
