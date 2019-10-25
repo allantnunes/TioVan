@@ -20,9 +20,20 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: AzureRmWebAppDeployment@3
-  displayName: 'Azure App Service Deploy: tiovan'
+- task: ArchiveFiles@2
   inputs:
-    azureSubscription: '4781ebda-1562-4b78-8849-3645d2c9d495'
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+    verbose: true
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Enterprise (c6c49e50-d24a-486d-9881-b6b5a61abe81)-9506'
+    appType: 'webAppLinux'
     WebAppName: 'tiovan'
-    Package: '$(System.DefaultWorkingDirectory)/build'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|10.1'
