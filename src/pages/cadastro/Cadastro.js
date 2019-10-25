@@ -3,39 +3,41 @@ import axios from 'axios';
 import Navbar from '../snippets/navbar';
 
 export default class Cadastro extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            nome:'',
-            apelido:'',
-            email:'',
-            celular:'',
-            cpf:'',
-            genero:''
+            nome: '',
+            apelido: '',
+            email: '',
+            celular: '',
+            cpf: '',
+            genero: ''
 
         }
     }
-    changeHandler = e=>{
-        this.setState({[e.target.id]:e.target.value});
+    changeHandler = e => {
+        this.setState({ [e.target.id]: e.target.value });
     }
-    submitHandler = e=>{
+    submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://localhost:3000/motorista/cadastrar',this.state)
-        .then(response=>{
-            console.log(response);
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+        axios.post('http://localhost:3000/motorista/cadastrar', this.state)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
-    render() {
-        const{nome,apelido,email,numCelular,cpf,genero} = this.state
-        return (
-            <>
-                <Navbar/>
-                <div className="overlay-div"></div>
 
+    render() {
+
+        const { nome, apelido, email, numCelular, cpf, genero } = this.state
+        return (
+            <Navbar /> ,
+
+            <>
+                <div className="overlay-div"></div>
                 <div className="container">
                     <div className="row ">
                         <div className="col-10 m-auto">
@@ -57,7 +59,7 @@ export default class Cadastro extends Component {
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="apelido">Apelido</label>
-                                                <input type="text" className="form-control" id="apelido"  onChange={this.changeHandler} placeholder="Tio Fulano" />
+                                                <input type="text" className="form-control" id="apelido" onChange={this.changeHandler} placeholder="Tio Fulano" />
                                             </div>
                                         </div>
 
