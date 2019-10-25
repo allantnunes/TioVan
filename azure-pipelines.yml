@@ -33,8 +33,14 @@ steps:
     archiveFile: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
     replaceExistingArchive: true
     verbose: true
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/server'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/build'
+    OverWrite: true
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/tiovan.zip'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/build'
     ArtifactName: 'drop'
     publishLocation: 'Container'
