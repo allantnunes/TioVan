@@ -40,7 +40,7 @@ export default class Cadastro extends Component {
                 <div className="overlay-div"></div>
                 <div className="container">
                     <div className="row ">
-                        <div className="col-10 m-auto">
+                        <div className="col-12 m-auto">
                             <div className="bg-warning rounded my-4 p-4">
                                 <form onSubmit={this.submitHandler}>
                                     <div className="row">

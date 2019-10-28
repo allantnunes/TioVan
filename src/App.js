@@ -7,7 +7,6 @@ import Navbar from '../src/pages/snippets/navbar';
 function App() {
 
     return (
-
         <>
             <Navbar />
 
