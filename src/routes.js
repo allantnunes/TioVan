@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro/Cadastro';
-import portal from './pages/portal/portal';
+import Portal from './pages/portal/portal';
 
 
 // const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -21,7 +21,7 @@ const Routes = () => (
             {/* <Route exact path="/" component={Home} /> */}
             <Route exact path="/" component={Login} />
             <Route path="/cadastro" component={Cadastro} />
-            <Route path="/portal" component={portal}/>
+            <Route path="/portal" component={Portal}/>
             {/* <PrivateRoute path="/motorista/dashboard" component={Dashboard}/> */}
         </Switch>
     </BrowserRouter>

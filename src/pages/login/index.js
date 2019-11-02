@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 import '../login/App.css';
+import Navbar from '../snippets/navbar';
 
 export default function Login({ history }) {
 
@@ -21,20 +22,29 @@ export default function Login({ history }) {
     }
     return (
         <>
-            {/* <h1>Login</h1> */}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="email">E-mail</label>
-                <input type="email" id="email" placeholder="E-mail"
-                    value={email}
-                    onChange={event => setEmail(event.target.value)} />
-                <label thmlFor="senha">Senha</label>
-                <input type="password" id="senha" placeholder="Digite a senha"
-                    value={senha}
-                    onChange={event => setSenha(event.target.value)} />
-            </form>
+            {/* <Navbar /> */}
             
-            <button className="btnLogin" type="submit">Entrar</button>
+            <div className="containerLogin">
+                <div className="contentLogin">
+                    <div className="logo" />
+                    {/* <h1>Login</h1> */}
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="email">E-mail</label>
+                        <input type="email" id="email" placeholder="E-mail"
+                            value={email}
+                            onChange={event => setEmail(event.target.value)} />
+                        <label thmlFor="senha">Senha</label>
+                        <input type="password" id="senha" placeholder="Digite a senha"
+                            value={senha}
+                            onChange={event => setSenha(event.target.value)} />
+                    </form>
 
+                    <center><p>Não é cadastrado? clique <a href="/cadastro">aqui</a></p></center>
+
+                    <button className="btnLogin" type="submit" >Entrar</button>
+                </div>
+            </div>
+           
         </>
     );
 }

@@ -4,9 +4,11 @@ import route from '../../public/img/route.svg';
 import money from '../../public/img/money.svg';
 import network from '../../public/img/network.svg';
 
+import '../portal/Pt.css';
+
 export default function portal(){
     return (
-        <>
+        <div>
            <div>
            <img src= {route} alt="route" />
 
@@ -48,6 +50,6 @@ export default function portal(){
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
