@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function Navbar() {
+export default function NavbarP() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
             <a className="navbar-brand font-weight-bold" href="#"><strong><span className="text-dark">Tio</span>Van</strong></a>
@@ -15,15 +15,7 @@ export default function Navbar() {
                 <div className="ml-auto mr-2">
                     <ul className="navbar-nav">
                         <li className="nav-item mr-1">
-                            <a href="/portal" className="nav-link"><span className="text-light">Início</span></a>
-                        </li>
-                        <li className="nav-item mr-2">
-                            <a href="/cadastro" className="nav-link"><span className="text-light">Cadastre-se</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="/">
-                                <button className="btn btn-secondary rounded" type="submit">Entrar</button>
-                            </a>
+                            <a href="/" className="nav-link"><span className="text-light">Início</span></a>
                         </li>
                     </ul>
                 </div>

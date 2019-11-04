@@ -34,9 +34,10 @@ export default class Cadastro extends Component {
 
         const { nome, apelido, email, numCelular, cpf, genero } = this.state
         return (
-            <Navbar /> ,
-
             <>
+
+                <Navbar />
+
                 <div className="overlay-div"></div>
                 <div className="container">
                     <div className="row ">

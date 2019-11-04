@@ -22,12 +22,12 @@ export default function Login({ history }) {
     }
     return (
         <>
-            {/* <Navbar /> */}
+            <Navbar />
             
             <div className="containerLogin">
                 <div className="contentLogin">
                     <div className="logo" />
-                    {/* <h1>Login</h1> */}
+                    <center><h1>Login</h1></center>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="email">E-mail</label>
                         <input type="email" id="email" placeholder="E-mail"

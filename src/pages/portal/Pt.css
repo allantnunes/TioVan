@@ -24,7 +24,7 @@ body, input, button {
   font-size: 14px;
 }
 
-.container {
+.container1 {
   margin: 80px auto 0;
   max-width: 450px;
   width: 100px;
@@ -33,7 +33,7 @@ body, input, button {
   align-items: center;
 }
 
-.content {
+.content1 {
   width: 500px;
   background: cornsilk;
   margin-top: 50px;
@@ -41,7 +41,7 @@ body, input, button {
   padding: 30px;
 }
 
-.content > p  {
+.content1 > p  {
   font-size: 22px;
   line-height: 20px;
   margin-bottom: 20px;
@@ -49,13 +49,13 @@ body, input, button {
 
 }
 
-.content form {
+.content1 form {
   display: flex;
   flex-direction: column;
   
 }
 
-.content form label {
+.content1 form label {
   font-size: 14px;
   color : #1b1613;
   font-weight: bold;
@@ -63,7 +63,7 @@ body, input, button {
   
 }
 
-.content form input{
+.content1 form input{
   margin-bottom: 20px;
   border: 1px solid #dddddd;
   border-radius: 2px;
@@ -72,7 +72,7 @@ body, input, button {
   font-size: 16px;
   
 }
-.content button.btn{ 
+.content1 button.btn{ 
   
   border: 0;
   border-radius: 2px;
@@ -89,7 +89,7 @@ body, input, button {
   
 }
 
-.content button.btn:hover{
+.content1 button.btn:hover{
     background: #c4a77d;
 }
 
