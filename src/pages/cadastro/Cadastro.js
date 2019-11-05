@@ -21,7 +21,7 @@ export default class Cadastro extends Component {
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('http://localhost:3000/motorista/cadastrar', this.state)
+        axios.post('https://tiovan.herokuapp.com/motorista/cadastro', this.state)
             .then(response => {
                 console.log(response);
             })

@@ -19,9 +19,9 @@ const Routes = () => (
     <BrowserRouter>
         <Switch>
             {/* <Route exact path="/" component={Home} /> */}
-            <Route exact path="/" component={Login} />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route path="/portal" component={Portal}/>
+            <Route exact path="/motorista/login" component={Login} />
+            <Route path="/motorista/cadastro" component={Cadastro} />
+            <Route path="/motorista/portal" component={Portal}/>
             {/* <PrivateRoute path="/motorista/dashboard" component={Dashboard}/> */}
         </Switch>
     </BrowserRouter>
