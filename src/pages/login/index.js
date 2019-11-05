@@ -11,13 +11,20 @@ export default function Login({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('/motorista/login', email, senha)
+        const response = await api.post('https://tiovan.herokuapp.com/motorista/login', this.email, this.senha)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
 
         const { _id } = response.data;
 
         localStorage.setItem('user', _id);
 
-        history.push('/motorista/dashboard');
+        history.push('/portal');
 
     }
     return (
@@ -39,9 +46,9 @@ export default function Login({ history }) {
                             onChange={event => setSenha(event.target.value)} />
                     </form>
 
-                    <center><p>Não é cadastrado? clique <a href="/cadastro">aqui</a></p></center>
+                    <center><p>Não é cadastrado? clique <a href="/motorista/cadastro">aqui</a></p></center>
 
-                    <button className="btnLogin" type="submit" >Entrar</button>
+                    <button type="submit" className="btnLogin">Entrar</button>
                 </div>
             </div>
            
