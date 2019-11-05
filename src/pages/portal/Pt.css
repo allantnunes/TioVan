@@ -7,6 +7,14 @@
   box-sizing: border-box;
   
 }
+
+/* .navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+} */
+
 html, body, #root {
   min-height: 100%;
 }
@@ -14,7 +22,7 @@ html, body, #root {
 /* public/img/WhatsApp\ Image\ 2019-09-09\ at\ 22.19.57.jpeg */
 
 body{
-  background: black url('../../public/img/bg5.png') no-repeat;
+  /* background: black url('../../public/img/bg5.png') no-repeat; */
   background-size: cover;
   -webkit-font-smooting: antialiased !important;
 }
@@ -25,19 +33,20 @@ body, input, button {
 }
 
 .container1 {
-  margin: 80px auto 0;
+  margin: 50px auto 0;
   max-width: 450px;
   width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .content1 {
-  width: 500px;
+  width: 300px;
   background: cornsilk;
   margin-top: 50px;
-  border-radius: 4px;
+  border-radius: 22px;
   padding: 30px;
 }
 
@@ -105,10 +114,10 @@ body, input, button {
 }
 
 .content2 {
-  width: 500px;
+  width: 300px;
   background: cornsilk;
   margin-top: 50px;
-  border-radius: 4px;
+  border-radius: 22px;
   padding: 30px;
 }
 
@@ -174,10 +183,10 @@ body, input, button {
 }
 
 .content3 {
-  width: 500px;
+  width: 300px;
   background: cornsilk;
   margin-top: 50px;
-  border-radius: 4px;
+  border-radius: 22px;
   padding: 30px;
 }
 
@@ -228,3 +237,18 @@ body, input, button {
   
   
 }
+
+/* .container3 button.btnTest{ 
+  
+
+  border-radius: 22px;
+  width: 300px;
+  margin-top: 20px;
+  margin: 80px auto 0;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+
+} */

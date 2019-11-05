@@ -9,11 +9,12 @@ import '../portal/Pt.css';
 export default function portal() {
     return (
         <div>
+            
             <NavbarP />
 
             <div className="container1">
-                <img src={route} alt="route" />
                 <div className="content1">
+                    <center><img src={route} alt="route" /></center>
                     <p>
                         Busque a melhor <strong>ROTA</strong> para ir de encontro ao local dos <strong>PASSAGEIROS</strong>!
                     </p>
@@ -25,9 +26,8 @@ export default function portal() {
             </div>
 
             <div className="container2">
-                <img src={money} alt="money" />
                 <div className='content2'>
-
+                    <center><img src={money} alt="money" /></center>
                     <p>
                         Administre seu <strong>CAIXA</strong> para que não haja <strong>PROBLEMAS</strong>!
                     </p>
@@ -38,9 +38,12 @@ export default function portal() {
                 </div>
             </div>
 
+            {/* <form> */}
             <div className="container3">
-                <img src={network} alt="network" />
+                {/* <button className="btnTest"> */}
                 <div className='content3'>
+
+                    <center><img src={network} alt="network" /></center>
 
                     <p>
                         Gerencie seus <strong>PASSAGEIROS</strong> e suas <strong>PARCELAS</strong> mensais!
@@ -49,8 +52,11 @@ export default function portal() {
                     <form>
                         <button className="btn3" type="button">Passageiros</button>
                     </form>
+
                 </div>
+                {/* </button> */}
             </div>
+            {/* </form> */}
         </div>
     )
 }
