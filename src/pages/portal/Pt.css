@@ -33,21 +33,25 @@ body, input, button {
 }
 
 .container1 {
-  margin: 50px auto 0;
-  max-width: 450px;
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* margin: 50px auto 0; */
+  /* max-width: 450px; */
+  /* width: 100px; */
+  width: 33%;
+  /* display: flex; */
+  float: left;
+  /* flex-direction: column; */
+  /* align-items: center; */
 
 }
 
 .content1 {
   width: 300px;
+  height: 370px;
   background: cornsilk;
   margin-top: 50px;
   border-radius: 22px;
   padding: 30px;
+  float: left;
 }
 
 .content1 > p  {
@@ -105,15 +109,18 @@ body, input, button {
 
 
 .container2 {
-  margin: 80px auto 0;
-  max-width: 450px;
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* margin: 80px auto 0; */
+  /* max-width: 450px; */
+  /* width: 100px; */
+  width: 33%;
+  float: left;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 
 .content2 {
+  height: 370px;
   width: 300px;
   background: cornsilk;
   margin-top: 50px;
@@ -156,7 +163,7 @@ body, input, button {
   
   border: 0;
   border-radius: 2px;
-  
+  margin-top: 13.8%;
   width: 100px center;
   height: 42px;
   padding: 0 20px;
@@ -174,15 +181,18 @@ body, input, button {
 }
 
 .container3 {
-  margin: 80px auto 0;
-  max-width: 450px;
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* margin: 80px auto 0; */
+  /* max-width: 450px; */
+  /* width: 100px; */
+  width: 33%;
+  float: left;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
 }
 
 .content3 {
+  height: 370px;
   width: 300px;
   background: cornsilk;
   margin-top: 50px;
@@ -228,6 +238,7 @@ body, input, button {
   
   width: 100px center;
   height: 42px;
+  margin-top: 13.8%;
   padding: 0 20px;
   font-size: 16px;
   font-weight: bold;
@@ -237,6 +248,12 @@ body, input, button {
   
   
 }
+.container4{
+  width: 80%;
+  height: 80%;
+  margin-top: 5%;
+  margin-left: 12%;
+} 
 
 /* .container3 button.btnTest{ 
   

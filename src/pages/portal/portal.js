@@ -11,52 +11,53 @@ export default function portal() {
         <div>
             
             <NavbarP />
+            <div className="container4">
+                <div className="container1">
+                    <div className="content1">
+                        <center><img src={route} alt="route" /></center>
+                        <p>
+                            Busque a melhor <strong>ROTA</strong> para ir de encontro ao local dos <strong>PASSAGEIROS</strong>!
+                        </p>
 
-            <div className="container1">
-                <div className="content1">
-                    <center><img src={route} alt="route" /></center>
-                    <p>
-                        Busque a melhor <strong>ROTA</strong> para ir de encontro ao local dos <strong>PASSAGEIROS</strong>!
-                    </p>
-
-                    <form>
-                        <button className="btn" type="button">Rotas</button>
-                    </form>
+                        <form>
+                            <button className="btn" type="button">Rotas</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div className="container2">
-                <div className='content2'>
-                    <center><img src={money} alt="money" /></center>
-                    <p>
-                        Administre seu <strong>CAIXA</strong> para que não haja <strong>PROBLEMAS</strong>!
-                    </p>
+                <div className="container2">
+                    <div className='content2'>
+                        <center><img src={money} alt="money" /></center>
+                        <p>
+                            Administre seu <strong>CAIXA</strong> para que não haja <strong>PROBLEMAS</strong>!
+                        </p>
 
-                    <form>
-                        <button className="btn2" type="button">Custos</button>
-                    </form>
+                        <form>
+                            <button className="btn2" type="button">Custos</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            {/* <form> */}
-            <div className="container3">
-                {/* <button className="btnTest"> */}
-                <div className='content3'>
+                {/* <form> */}
+                <div className="container3">
+                    {/* <button className="btnTest"> */}
+                    <div className='content3'>
 
-                    <center><img src={network} alt="network" /></center>
+                        <center><img src={network} alt="network" /></center>
 
-                    <p>
-                        Gerencie seus <strong>PASSAGEIROS</strong> e suas <strong>PARCELAS</strong> mensais!
-                    </p>
+                        <p>
+                            Gerencie seus <strong>PASSAGEIROS</strong> e suas <strong>PARCELAS</strong> mensais!
+                        </p>
 
-                    <form>
-                        <button className="btn3" type="button">Passageiros</button>
-                    </form>
+                        <form>
+                            <button className="btn3" type="button">Passageiros</button>
+                        </form>
 
+                    </div>
+                    {/* </button> */}
                 </div>
-                {/* </button> */}
+                {/* </form> */}
             </div>
-            {/* </form> */}
         </div>
     )
 }
