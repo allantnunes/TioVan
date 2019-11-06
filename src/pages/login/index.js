@@ -11,7 +11,7 @@ export default function Login({ history }) {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('https://tiovan.herokuapp.com/motorista/login', this.email, this.senha)
+        const response = await api.post('https://tiovan.herokuapp.com/motorista/login', email, senha)
         .then(response => {
             console.log(response);
         })
@@ -44,11 +44,12 @@ export default function Login({ history }) {
                         <input type="password" id="senha" placeholder="Digite a senha"
                             value={senha}
                             onChange={event => setSenha(event.target.value)} />
-                    </form>
+                    
 
                     <center><p>Não é cadastrado? clique <a href="/motorista/cadastro">aqui</a></p></center>
 
                     <button type="submit" className="btnLogin">Entrar</button>
+                    </form>
                 </div>
             </div>
            
