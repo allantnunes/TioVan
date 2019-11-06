@@ -7,24 +7,25 @@ export default function Login({ history }) {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-
+    const login = {email: email, senha: senha}
+    var _id = "";
     async function handleSubmit(event) {
         event.preventDefault();
 
-        const response = await api.post('https://tiovan.herokuapp.com/motorista/login', email, senha)
+        const response = await api.post('https://tiovan.herokuapp.com/motorista/login', login)
         .then(response => {
             console.log(response);
+            _id = response.data;
         })
         .catch(error => {
             console.log(error)
         })
 
 
-        const { _id } = response.data;
-
+        console.log(_id);
         localStorage.setItem('user', _id);
 
-        history.push('/portal');
+        history.push('/motorista/portal');
 
     }
     return (
@@ -40,7 +41,7 @@ export default function Login({ history }) {
                         <input type="email" id="email" placeholder="E-mail"
                             value={email}
                             onChange={event => setEmail(event.target.value)} />
-                        <label thmlFor="senha">Senha</label>
+                        <label htmlFor="senha">Senha</label>
                         <input type="password" id="senha" placeholder="Digite a senha"
                             value={senha}
                             onChange={event => setSenha(event.target.value)} />

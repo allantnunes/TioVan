@@ -1,5 +1,5 @@
 import React from 'react';
-
+import MetaTags from 'react-meta-tags';
 
 export default function Navbar() {
     return (

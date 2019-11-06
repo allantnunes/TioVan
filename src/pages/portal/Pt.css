@@ -8,6 +8,9 @@
   
 }
 
+
+
+
 /* .navbar{
   position: fixed;
   top: 0;
@@ -180,6 +183,9 @@ body, input, button {
     background: #c4a77d;
 }
 
+.content3 button.btn3:hover{
+  background: #c4a77d;
+}
 .container3 {
   /* margin: 80px auto 0; */
   /* max-width: 450px; */
@@ -249,23 +255,69 @@ body, input, button {
   
 }
 .container4{
-  width: 80%;
+  width: 85%;
   height: 80%;
   margin-top: 5%;
-  margin-left: 12%;
+  margin-left: 8.2%;
 } 
 
-/* .container3 button.btnTest{ 
+@media only screen and (max-width: 1200px) {
+  .container1 {
+    /* margin: 50px auto 0; */
+    /* max-width: 450px; */
+    /* width: 100px; */
+    width: 50%;
+    /* display: flex; */
+    float: left;
+    /* flex-direction: column; */
+    align-items: center;
   
+  }
+  .container2 {
+    /* max-width: 450px; */
+    /* width: 100px; */
+    width: 30%;
+    /* display: flex; */
+    float: left;
+    /* flex-direction: column; */
+    align-items: center;
+  
+  }
+}
 
-  border-radius: 22px;
-  width: 300px;
-  margin-top: 20px;
-  margin: 80px auto 0;
-  max-width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
- 
-
-} */
+@media only screen and (max-width: 800px) {
+  .container1 {
+    margin: 50px auto 0;
+    /* max-width: 450px; */
+    /* width: 100px; */
+    right: 10%;
+    width: 60%;
+    display: flex;
+    float: none;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  .container2 {
+    margin: 50px auto 0;
+    max-width: 450px;
+    width: 100px;
+    width: 60%;
+    display: flex;
+    float: unset;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  .container3 {
+    margin: 50px auto 0;
+    /* max-width: 450px; */
+    /* width: 100px; */
+    width: 60%;
+    display: flex;
+    float: unset;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+}
