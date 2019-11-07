@@ -9,7 +9,7 @@ import '../portal/Pt.css';
 export default function portal() {
     return (
         <div>
-            
+
             <NavbarP />
             <div className="container4">
                 <div className="container1">
@@ -38,9 +38,7 @@ export default function portal() {
                     </div>
                 </div>
 
-                {/* <form> */}
                 <div className="container3">
-                    {/* <button className="btnTest"> */}
                     <div className='content3'>
 
                         <center><img src={network} alt="network" /></center>
@@ -52,11 +50,8 @@ export default function portal() {
                         <form>
                             <button className="btn3" type="button">Passageiros</button>
                         </form>
-
                     </div>
-                    {/* </button> */}
                 </div>
-                {/* </form> */}
             </div>
         </div>
     )

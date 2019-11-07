@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 import '../login/App.css';
 import Navbar from '../snippets/navbar';
+import { Link, withRouter } from "react-router-dom";
+// import { login } from "../../services/auth";
 
 export default function Login({ history }) {
 
@@ -47,7 +49,7 @@ export default function Login({ history }) {
                             onChange={event => setSenha(event.target.value)} />
                     
 
-                    <center><p>Não é cadastrado? clique <a href="/motorista/cadastro">aqui</a></p></center>
+                    <center><p>Não é cadastrado? clique <Link to="/motorista/cadastro">aqui</Link></p></center>
 
                     <button type="submit" className="btnLogin">Entrar</button>
                     </form>
