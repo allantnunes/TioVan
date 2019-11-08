@@ -9,6 +9,7 @@ export default class Cadastro extends Component {
             nome: '',
             apelido: '',
             email: '',
+            senha: '',
             celular: '',
             cpf: '',
             genero: ''
@@ -41,12 +42,12 @@ export default class Cadastro extends Component {
                 <div className="overlay-div"></div>
                 <div className="container">
                     <div className="row ">
-                        <div className="col-12 m-auto">
+                        <div className="col-8 m-auto">
                             <div className="bg-warning rounded my-4 p-4">
                                 <form onSubmit={this.submitHandler}>
                                     <div className="row">
                                         <div className="mx-auto">
-                                            <h1>REGISTRE<span className="text-light">-</span>SE</h1>
+                                            <h1>CADASTRE<span className="text-light">-</span>SE</h1>
                                         </div>
 
                                     </div>
@@ -72,6 +73,7 @@ export default class Cadastro extends Component {
                                                 <input type="email" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
                                             </div>
                                         </div>
+
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="celular">Celular</label>
@@ -100,6 +102,24 @@ export default class Cadastro extends Component {
                                             </div>
                                         </div>
                                     </div>
+                                    <div>
+                                        <hr />
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-5 offset-1">
+                                            <div className="form-group">
+                                                <label htmlFor="senha">Senha</label>
+                                                <input type="password" className="form-control" id="password" onChange={this.changeHandler} placeholder="Digite a senha" />
+                                            </div>
+                                        </div>
+                                        <div className="col-5">
+                                            <div className="form-group">
+                                                <label htmlFor="senha">Repetir Senha</label>
+                                                <input type="password" className="form-control" id="password" onChange={this.changeHandler} placeholder="Digite a senha novamente" />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div className="row">
                                         <div className="mx-auto">
                                             <button type="submit" className="btn btn-primary" id="btnCadastrar">Cadastrar</button>
