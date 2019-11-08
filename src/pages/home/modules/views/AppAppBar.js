@@ -1,38 +1,54 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { withStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import AppBar from '../components/AppBar';
-import Toolbar, { styles as toolbarStyles } from '../components/Toolbar';
-
+import React from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import { withStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
+import AppBar from "../components/AppBar";
+import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
+const backgroundImage = "https://svgur.com/i/G2Q.svg";
 const styles = theme => ({
+  logoTexto: {
+    backgroundImage: `url:(${""})`
+  },
+  testeNoLink: {
+    textDecoration: "overline",
+    "&:hover": {
+      color: "white",
+      textDecoration: "none"
+    }
+  },
   title: {
-    fontSize: 24,
+    fontSize: 24
   },
   placeholder: toolbarStyles(theme).root,
   toolbar: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between"
   },
   left: {
-    flex: 1,
+    flex: 1
   },
-  leftLinkActive: {
-    color: theme.palette.common.white,
-  },
+  // leftLinkActive: {
+  //   color: theme.palette.common.red
+  // },
   right: {
     flex: 1,
-    display: 'flex',
-    justifyContent: 'flex-end',
+    display: "flex",
+    justifyContent: "flex-end"
   },
   rightLink: {
-    fontSize: 16,
-    color: theme.palette.common.white,
-    marginLeft: theme.spacing(3),
+    fontSize: 20,
+    "&:hover": {
+      color: "white",
+      textDecoration: "none"
+    },
+    textDecoration: "none",
+    color: theme.palette.common.red,
+    marginLeft: theme.spacing(3)
   },
   linkSecondary: {
-    color: theme.palette.secondary.main,
-  },
+    textDecoration: "none",
+    color: theme.palette.secondary.main
+  }
 });
 
 function AppAppBar(props) {
@@ -50,7 +66,13 @@ function AppAppBar(props) {
             className={classes.title}
             href="/premium-themes/onepirate/"
           >
-            {'onepirate'}
+            {
+              <img
+                style={{ display: "block" }}
+                src={backgroundImage}
+                alt="increase priority"
+              />
+            }
           </Link>
           <div className={classes.right}>
             <Link
@@ -60,15 +82,19 @@ function AppAppBar(props) {
               className={classes.rightLink}
               href="/premium-themes/onepirate/sign-in/"
             >
-              {'Sign In'}
+              {"Sign In"}
             </Link>
             <Link
               variant="h6"
               underline="none"
-              className={clsx(classes.rightLink, classes.linkSecondary)}
+              className={clsx(
+                classes.rightLink,
+                classes.linkSecondary,
+                classes.testeNoLink
+              )}
               href="/premium-themes/onepirate/sign-up/"
             >
-              {'Sign Up'}
+              {"Sign Up"}
             </Link>
           </div>
         </Toolbar>
@@ -79,7 +105,7 @@ function AppAppBar(props) {
 }
 
 AppAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(AppAppBar);
