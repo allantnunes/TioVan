@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './pages/login';
 import Cadastro from './pages/cadastro/Cadastro';
 import Portal from './pages/portal/portal';
+import Home from './pages/home/Home';
 import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -21,11 +22,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            {/* <Route exact path="/" component={Home} /> */}
+            <Route path="/motorista/home" component={Home} />
             <Route exact path="/" component={Login} />
             <Route path="/motorista/cadastro" component={Cadastro} />
-            {/* <Route path="/motorista/portal" component={Portal} /> */}
-            <PrivateRoute path="/motorista/portal" component={Portal}/>
+            <Route path="/motorista/portal" component={Portal} />
             <Route path="*" component={() => <h1>Page not found</h1>} />
         </Switch>
     </BrowserRouter>
