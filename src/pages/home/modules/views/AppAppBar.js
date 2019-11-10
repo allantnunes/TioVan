@@ -4,12 +4,9 @@ import clsx from "clsx";
 import { withStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import AppBar from "../components/AppBar";
+import tiovanTextLogo from "../media/tiovan_LOGO_TEXT.svg";
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
-const backgroundImage = "https://svgur.com/i/G2Q.svg";
 const styles = theme => ({
-  logoTexto: {
-    backgroundImage: `url:(${""})`
-  },
   testeNoLink: {
     textDecoration: "overline",
     "&:hover": {
@@ -69,7 +66,7 @@ function AppAppBar(props) {
             {
               <img
                 style={{ display: "block" }}
-                src={backgroundImage}
+                src={tiovanTextLogo}
                 alt="increase priority"
               />
             }
