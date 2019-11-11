@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from '../snippets/navbar';
+import Tabela from '../snippets/tabela';
+import dados from '../snippets/testetabela.json';
 
 export default class Cadastro extends Component {
     constructor(props) {
@@ -38,7 +40,7 @@ export default class Cadastro extends Component {
             <>
 
                 <Navbar />
-
+                <Tabela data={dados}/>
                 <div className="overlay-div"></div>
                 <div className="container">
                     <div className="row ">
