@@ -31,6 +31,7 @@
         transform-origin: 204% 322.8%;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+        will-change: transform;
     }
     #g7461{
       transform: scale(1) translate(-66%, -158%);
@@ -39,6 +40,7 @@
         transform-origin: 193% 353.8%;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+        will-change: transform;
     }
     #g7605{
       transform: scale(1) translate(-45%, -142%);
@@ -47,6 +49,7 @@
         transform-origin: 198% 363.8%;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+        will-change: transform;
     }
     #g7659{
       transform: scale(1) translate(-12%, -72%);

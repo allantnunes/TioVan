@@ -4,14 +4,16 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
-import BannerVan from '../media/Composição1.3.svg';
+import BannerVan from '../media/Composição1.3c.svg';
+
 
 
 
 const styles = theme => ({
   background: {
-    backgroundImage: `url(${BannerVan})`,
-    backgroundColor: '#7fc7d9', // Average color of the background image.
+    background: `no-repeat url(${BannerVan})`,
+    backgroundSize: `1500px auto`,
+    backgroundColor: '#f2f6fa', // Average color of the background image.
     backgroundPosition: 'center',
   },
   button: {
@@ -35,12 +37,12 @@ function ProductHero(props) {
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
-      <img style={{ display: 'none' }} src={BannerVan} alt="increase priority" />
+      <img style={{ display: "none" }} url={{ BannerVan }} />
       <Typography color="inherit" align="center" variant="h2" marked="center">
-        Upgrade your Sundays
+        TIOVAN
       </Typography>
       <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+        Facilite suas viagens com TioVan.
       </Typography>
       <Button
         color="secondary"
@@ -48,13 +50,13 @@ function ProductHero(props) {
         size="large"
         className={classes.button}
         component="a"
-        href="/premium-themes/onepirate/sign-up/"
+        href="/motorista/cadastro"
       >
-        Register
+        Registre-se
       </Button>
-      <Typography variant="body2" color="inherit" className={classes.more}>
+      {/* <Typography variant="body2" color="inherit" className={classes.more}>
         Discover the experience
-      </Typography>
+      </Typography> */}
     </ProductHeroLayout>
   );
 }
