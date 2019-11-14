@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Navbar from '../snippets/navbar';
+import AppAppBar from '../home/modules/views/AppAppBar';
 import Tabela from '../snippets/tabela';
 import dados from '../snippets/testetabela.json';
 
@@ -39,8 +39,9 @@ export default class Cadastro extends Component {
         return (
             <>
 
-                <Navbar />
-                <Tabela data={dados}/>
+                <AppAppBar />
+
+                <Tabela data={dados} />
                 <div className="overlay-div"></div>
                 <div className="container">
                     <div className="row ">

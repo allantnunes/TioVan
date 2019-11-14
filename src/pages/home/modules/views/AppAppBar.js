@@ -61,7 +61,7 @@ function AppAppBar(props) {
             underline="none"
             color="inherit"
             className={classes.title}
-            href="/premium-themes/onepirate/"
+            href="/"
           >
             {
               <img
@@ -77,9 +77,9 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              href="/premium-themes/onepirate/sign-in/"
+              href="/login"
             >
-              {"Sign In"}
+              {"Login"}
             </Link>
             <Link
               variant="h6"
@@ -89,9 +89,9 @@ function AppAppBar(props) {
                 classes.linkSecondary,
                 classes.testeNoLink
               )}
-              href="/premium-themes/onepirate/sign-up/"
+              href="/cadastro"
             >
-              {"Sign Up"}
+              {"Cadastro"}
             </Link>
           </div>
         </Toolbar>

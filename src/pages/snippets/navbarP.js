@@ -16,7 +16,7 @@ export default function NavbarP() {
                 <div className="ml-auto mr-2">
                     <ul className="navbar-nav">
                         <li className="nav-item mr-1">
-                            <Link to="/motorista/cadastro" className="nav-link"><span className="text-light">Início</span></Link>
+                            <Link to="/" className="nav-link"><span className="text-light">Home</span></Link>
                         </li>
                     </ul>
                 </div>
