@@ -1,7 +1,7 @@
 import React from 'react';
 import Routes from 'react-router-dom';
 import AppBarPortal from '../home/modules/views/AppBarPortal';
-import Despesas from '../../public/img/money.svg';
+import Despesas from '../../public/img/carteiraBorda.svg';
 import '../financeiro/style.css';
 // import { Link } from "react-router-dom";
 

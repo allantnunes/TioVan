@@ -76,6 +76,18 @@ function AppBarPortal(props) {
                             color="inherit"
                             variant="h6"
                             underline="none"
+                            className={clsx(
+                                classes.rightLink,
+                                classes.linkSecondary
+                            )}
+                            href="/motorista/portal"
+                        >
+                            {"Portal"}
+                        </Link>
+                        <Link
+                            color="inherit"
+                            variant="h6"
+                            underline="none"
                             className={classes.rightLink}
                             href="/motorista/rotas"
                         >
