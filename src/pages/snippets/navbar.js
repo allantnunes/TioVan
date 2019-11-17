@@ -17,13 +17,13 @@ export default function Navbar() {
                 <div className="ml-auto mr-2">
                     <ul className="navbar-nav">
                         <li className="nav-item mr-1">
-                            <Link to="/motorista/portal" className="nav-link"><span className="text-light">Início</span></Link>
+                            <Link to="/" className="nav-link"><span className="text-light">Início</span></Link>
                         </li>
                         <li className="nav-item mr-2">
-                            <Link to="/motorista/cadastro" className="nav-link"><span className="text-light">Cadastre-se</span></Link>
+                            <Link to="/cadastro" className="nav-link"><span className="text-light">Cadastre-se</span></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/">
+                            <Link to="/login">
                                 <button className="btn btn-secondary rounded" type="submit">Entrar</button>
                             </Link>
                         </li>

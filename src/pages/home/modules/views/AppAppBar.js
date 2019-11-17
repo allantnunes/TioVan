@@ -61,7 +61,7 @@ function AppAppBar(props) {
             underline="none"
             color="inherit"
             className={classes.title}
-            href="/premium-themes/onepirate/"
+            href="/"
           >
             {
               <img
@@ -77,9 +77,13 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              href="/premium-themes/onepirate/sign-in/"
+              href="/login"
             >
+<<<<<<< HEAD
               {"Entrar"}
+=======
+              {"Login"}
+>>>>>>> e795d0f4e96507269b637224120d941de37339ef
             </Link>
             <Link
               variant="h6"
@@ -89,7 +93,7 @@ function AppAppBar(props) {
                 classes.linkSecondary,
                 classes.testeNoLink
               )}
-              href="/premium-themes/onepirate/sign-up/"
+              href="/cadastro"
             >
               {"Cadastro"}
             </Link>

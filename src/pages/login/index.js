@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 import '../login/App.css';
-import Navbar from '../snippets/navbar';
+import AppAppBar from '../home/modules/views/AppAppBar';
 import { Link } from "react-router-dom";
 
 
@@ -32,7 +32,7 @@ export default function Login({ history }) {
     }
     return (
         <>
-            <Navbar />
+            <AppAppBar />
 
             <div className="containerLogin">
                 <div className="contentLogin">
@@ -51,7 +51,9 @@ export default function Login({ history }) {
 
                         <center><p>Não é cadastrado? clique <Link to="/motorista/cadastro">aqui</Link></p></center>
 
-                        <button type="submit" className="btnLogin">Entrar</button>
+                        <Link to="/motorista/portal">
+                            <button type="submit" className="btnLogin">Entrar</button>
+                        </Link>
                     </form>
                 </div>
             </div>
