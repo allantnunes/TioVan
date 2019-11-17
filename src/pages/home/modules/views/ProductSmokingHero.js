@@ -11,7 +11,7 @@ const styles = theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: theme.spacing(9),
-    marginBottom: theme.spacing(9),
+    marginBottom: theme.spacing(6),
   },
   button: {
     border: '4px solid currentColor',
@@ -21,7 +21,11 @@ const styles = theme => ({
   },
   link: {
     marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(0),
+  },
+  link2: {
+    marginTop: theme.spacing(0),
+    marginBottom: theme.spacing(0),
   },
   buoy: {
     width: 60,
@@ -35,13 +39,15 @@ function ProductSmokingHero(props) {
     <Container className={classes.root} component="section">
       <Button className={classes.button}>
         <Typography variant="h4" component="span">
-          Got any questions? Need help?
+          Precisa de ajuda?
         </Typography>
       </Button>
       <Typography variant="subtitle1" className={classes.link}>
-        We are here to help. Get in touch!
+        Envie-nos uma mensagem!
       </Typography>
-      <img src="/static/themes/onepirate/producBuoy.svg" className={classes.buoy} alt="buoy" />
+      <Typography variant="subtitle1" className={classes.link2}>
+        tiovan@tiovan.com.br
+      </Typography>
     </Container>
   );
 }

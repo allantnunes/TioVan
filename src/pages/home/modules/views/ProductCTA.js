@@ -8,10 +8,11 @@ import Typography from '../components/Typography';
 import TextField from '../components/TextField';
 import Snackbar from '../components/Snackbar';
 import Button from '../components/Button';
+import image from '../media/fundoback.jpeg';
 
 const styles = theme => ({
   root: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(20),
     marginBottom: 0,
     display: 'flex',
   },
@@ -49,12 +50,12 @@ const styles = theme => ({
   },
   image: {
     position: 'absolute',
-    top: -28,
+    top: -4,
     left: -28,
     right: 0,
     bottom: 0,
     width: '100%',
-    maxWidth: 600,
+    maxWidth: 700,
   },
 });
 
@@ -78,14 +79,14 @@ function ProductCTA(props) {
           <div className={classes.card}>
             <form onSubmit={handleSubmit} className={classes.cardContent}>
               <Typography variant="h2" component="h2" gutterBottom>
-                Receive offers
+                Receba atualizações
               </Typography>
               <Typography variant="h5">
-                Taste the holidays of the everyday close to home.
+                Fique atualizado com cada coisa nova que lançar!
               </Typography>
               <TextField noBorder className={classes.textField} placeholder="Your email" />
               <Button type="submit" color="primary" variant="contained" className={classes.button}>
-                Keep me updated
+                Deixe-me atualizado
               </Button>
             </form>
           </div>
@@ -94,7 +95,7 @@ function ProductCTA(props) {
           <Hidden smDown>
             <div className={classes.imageDots} />
             <img
-              src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750&q=80"
+              src={image}
               alt="call to action"
               className={classes.image}
             />

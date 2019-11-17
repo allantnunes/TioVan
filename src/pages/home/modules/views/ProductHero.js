@@ -6,9 +6,6 @@ import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 import BannerVan from '../media/Composição1.3c.svg';
 
-
-
-
 const styles = theme => ({
   background: {
     background: `no-repeat url(${BannerVan})`,
@@ -17,11 +14,11 @@ const styles = theme => ({
     backgroundPosition: 'center',
   },
   button: {
+    top:110,
     minWidth: 200,
   },
   h5: {
     marginBottom: theme.spacing(4),
-    marginTop: theme.spacing(4),
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(10),
     },

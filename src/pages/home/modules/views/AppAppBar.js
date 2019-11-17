@@ -79,7 +79,7 @@ function AppAppBar(props) {
               className={classes.rightLink}
               href="/premium-themes/onepirate/sign-in/"
             >
-              {"Sign In"}
+              {"Entrar"}
             </Link>
             <Link
               variant="h6"
@@ -91,7 +91,7 @@ function AppAppBar(props) {
               )}
               href="/premium-themes/onepirate/sign-up/"
             >
-              {"Sign Up"}
+              {"Cadastro"}
             </Link>
           </div>
         </Toolbar>
