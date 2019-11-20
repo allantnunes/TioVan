@@ -79,11 +79,7 @@ function AppAppBar(props) {
               className={classes.rightLink}
               href="/login"
             >
-<<<<<<< HEAD
               {"Entrar"}
-=======
-              {"Login"}
->>>>>>> e795d0f4e96507269b637224120d941de37339ef
             </Link>
             <Link
               variant="h6"
