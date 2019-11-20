@@ -28,7 +28,7 @@ const Routes = () => (
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/motorista/portal" component={Portal} />
             <Route path="/motorista/financeiro" component={Financeiro} />
-            <Route path="*" component={() => <h1>Page not found</h1>} />
+            <Route path="*" component={() => <h1>Page Not Found</h1>} />
         </Switch>
     </BrowserRouter >
 );

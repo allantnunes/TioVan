@@ -5,6 +5,10 @@ import { withStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import AppBar from "../components/AppBar";
 import tiovanTextLogo from "../media/tiovan_LOGO_TEXT.svg";
+import UserIcon from "../../../../public/img/UserIcon.png";
+import BusIcon from "../../../../public/img/BusIcon.png";
+import RoutesIcon from "../../../../public/img/RoutesIcon.png";
+import MoneyIcon from "../../../../public/img/MoneyIcon.png";
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
 const styles = theme => ({
     testeNoLink: {
@@ -82,6 +86,11 @@ function AppBarPortal(props) {
                             )}
                             href="/motorista/portal"
                         >
+                            <img
+                                style={{ display: "block" }}
+                                src={BusIcon}
+                                alt="increase priority"
+                            />
                             {"Portal"}
                         </Link>
                         <Link
@@ -91,18 +100,25 @@ function AppBarPortal(props) {
                             className={classes.rightLink}
                             href="/motorista/rotas"
                         >
+                            <img
+                                style={{ display: "block" }}
+                                src={RoutesIcon}
+                                alt="increase priority"
+                            />
                             {"Rotas"}
                         </Link>
                         <Link
                             color="inherit"
                             variant="h6"
                             underline="none"
-                            className={clsx(
-                                classes.rightLink,
-                                classes.linkSecondary
-                            )}
+                            className={classes.rightLink}
                             href="/motorista/financeiro"
                         >
+                            <img
+                                style={{ display: "block" }}
+                                src={MoneyIcon}
+                                alt="increase priority"
+                            />
                             {"Financeiro"}
                         </Link>
                         <Link
@@ -115,6 +131,21 @@ function AppBarPortal(props) {
                             {"Perfis"}
                         </Link>
                     </div>
+                    <Link
+                        variant="h6"
+                        underline="none"
+                        color="inherit"
+                        className={classes.title}
+                        href="/motorista/user"
+                    >
+                        {
+                            <img
+                                style={{ display: "block" }}
+                                src={UserIcon}
+                                alt="increase priority"
+                            />
+                        }
+                    </Link>
                 </Toolbar>
             </AppBar>
             <div className={classes.placeholder} />

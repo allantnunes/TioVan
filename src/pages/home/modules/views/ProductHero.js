@@ -7,13 +7,7 @@ import ProductHeroLayout from './ProductHeroLayout';
 import BannerVan from '../media/Composição1.3c.svg';
 import { Link } from 'react-router-dom';
 
-<<<<<<< HEAD
-const styles = theme => ({
-=======
-
-
 export const styles = theme => ({
->>>>>>> e795d0f4e96507269b637224120d941de37339ef
   background: {
     background: `no-repeat url(${BannerVan})`,
     backgroundSize: `1500px auto`,
@@ -21,7 +15,7 @@ export const styles = theme => ({
     backgroundPosition: 'center',
   },
   button: {
-    top:110,
+    top: 110,
     minWidth: 200,
   },
   h5: {
