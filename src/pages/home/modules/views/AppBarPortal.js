@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { withStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import AppBar from "../components/AppBar";
 import tiovanTextLogo from "../media/tiovan_LOGO_TEXT.svg";
 import UserIcon from "../../../../public/img/UserIcon.png";
 import BusIcon from "../../../../public/img/BusIcon.png";
 import RoutesIcon from "../../../../public/img/RoutesIcon.png";
 import MoneyIcon from "../../../../public/img/MoneyIcon.png";
+import UsersIcon from "../../../../public/img/UsersIcon.png";
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
 const styles = theme => ({
     testeNoLink: {
@@ -65,7 +67,8 @@ function AppBarPortal(props) {
                         underline="none"
                         color="inherit"
                         className={classes.title}
-                        href="/"
+                        to="/"
+                        title="TioVan"
                     >
                         {
                             <img
@@ -80,11 +83,12 @@ function AppBarPortal(props) {
                             color="inherit"
                             variant="h6"
                             underline="none"
+                            title="Portal"
                             className={clsx(
                                 classes.rightLink,
                                 classes.linkSecondary
                             )}
-                            href="/motorista/portal"
+                            to="/motorista/portal"
                         >
                             <img
                                 style={{ display: "block" }}
@@ -97,8 +101,9 @@ function AppBarPortal(props) {
                             color="inherit"
                             variant="h6"
                             underline="none"
+                            title="Rotas"
                             className={classes.rightLink}
-                            href="/motorista/rotas"
+                            to="/motorista/rotas"
                         >
                             <img
                                 style={{ display: "block" }}
@@ -111,8 +116,9 @@ function AppBarPortal(props) {
                             color="inherit"
                             variant="h6"
                             underline="none"
+                            title="Financeiro"
                             className={classes.rightLink}
-                            href="/motorista/financeiro"
+                            to="/motorista/financeiro"
                         >
                             <img
                                 style={{ display: "block" }}
@@ -125,9 +131,15 @@ function AppBarPortal(props) {
                             color="inherit"
                             variant="h6"
                             underline="none"
+                            title="Perfis"
                             className={classes.rightLink}
-                            href="/motorista/perfis"
+                            to="/motorista/perfis"
                         >
+                            <img
+                                style={{ display: "block" }}
+                                src={UsersIcon}
+                                alt="increase priority"
+                            />
                             {"Perfis"}
                         </Link>
                     </div>
@@ -135,8 +147,9 @@ function AppBarPortal(props) {
                         variant="h6"
                         underline="none"
                         color="inherit"
+                        title="Perfil"
                         className={classes.title}
-                        href="/motorista/user"
+                        to="/motorista/user"
                     >
                         {
                             <img
