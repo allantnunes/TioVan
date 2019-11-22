@@ -61,7 +61,7 @@ function AppBarPortal(props) {
         <div>
             <AppBar position="fixed">
                 <Toolbar className={classes.toolbar}>
-                    <div className={classes.left} />
+                    <div className={classes.right} />
                     <Link
                         variant="h6"
                         underline="none"
@@ -78,7 +78,7 @@ function AppBarPortal(props) {
                             />
                         }
                     </Link>
-                    <div className={classes.right}>
+                    {/* <div className={classes.right}>
                         <Link
                             color="inherit"
                             variant="h6"
@@ -142,7 +142,7 @@ function AppBarPortal(props) {
                             />
                             {"Perfis"}
                         </Link>
-                    </div>
+                    </div> */}
                     <Link
                         variant="h6"
                         underline="none"
