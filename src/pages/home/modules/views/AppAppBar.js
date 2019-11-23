@@ -79,7 +79,7 @@ function AppAppBar(props) {
               className={classes.rightLink}
               href="/login"
             >
-              {"Entrar"}
+              {"ENTRA"}
             </Link>
             <Link
               variant="h6"
@@ -91,7 +91,7 @@ function AppAppBar(props) {
               )}
               href="/cadastro"
             >
-              {"Cadastro"}
+              {"CADASTRO"}
             </Link>
           </div>
         </Toolbar>

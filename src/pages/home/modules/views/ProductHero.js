@@ -15,17 +15,34 @@ export const styles = theme => ({
     backgroundPosition: 'center',
   },
   button: {
-    top: 110,
+    top: 60,
     minWidth: 200,
+    right: '250%',
   },
   h5: {
+    marginBottom: theme.spacing(1),
+    [theme.breakpoints.up('sm')]: {
+      marginTop: theme.spacing(-19),
+    },
+    fontFamily: 'cursive',
+    right: 20,
+  },
+  h5_2: {
     marginBottom: theme.spacing(4),
     [theme.breakpoints.up('sm')]: {
-      marginTop: theme.spacing(10),
+      marginTop: theme.spacing(0),
     },
+    fontFamily: 'cursive',
+    right: 20,
   },
   more: {
     marginTop: theme.spacing(2),
+  },
+  left: {
+    width:'100%',
+    textAlign:'left',
+  },
+  classeDahora:{
   },
 });
 
@@ -36,12 +53,14 @@ function ProductHero(props) {
     <ProductHeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
       <img style={{ display: "none" }} url={{ BannerVan }} />
-      <Typography color="inherit" align="center" variant="h2" marked="center">
-        TIOVAN
+      <div className={classes.left}>
+      <Typography color="inherit" align="left" variant="h2" className={classes.h5}>
+        Facilite suas viagens
       </Typography>
-      <Typography color="inherit" align="center" variant="h5" className={classes.h5}>
-        Facilite suas viagens com TioVan.
+      <Typography color="inherit" align="left" variant="h2" className={classes.h5_2}>
+        com <spam className={classes.classeDahora}>tiovan</spam>
       </Typography>
+      </div>
 
       <Link to="/cadastro" color="inherit">
         <Button
@@ -59,6 +78,7 @@ function ProductHero(props) {
       {/* <Typography variant="body2" color="inherit" className={classes.more}>
         Discover the experience
       </Typography> */}
+
     </ProductHeroLayout>
   );
 }

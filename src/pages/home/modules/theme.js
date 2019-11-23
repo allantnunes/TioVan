@@ -29,7 +29,6 @@ const rawTheme = createMuiTheme({
   },
   typography: {
     textDecoration: "none",
-    fontFamily: "'Work Sans', sans-serif",
     fontSize: 14,
     fontWeightLight: 300, // Work Sans
     fontWeightRegular: 400, // Work Sans
@@ -42,7 +41,6 @@ const fontHeader = {
   color: rawTheme.palette.text.primary,
   fontWeight: rawTheme.typography.fontWeightMedium,
   fontFamily: rawTheme.typography.fontFamilySecondary,
-  textTransform: "uppercase"
 };
 
 const theme = {
@@ -67,7 +65,8 @@ const theme = {
     h2: {
       ...rawTheme.typography.h2,
       ...fontHeader,
-      fontSize: 48
+      fontSize: 52,
+      fontWeight: rawTheme.typography.fontWeightLight
     },
     h3: {
       ...rawTheme.typography.h3,
@@ -81,7 +80,7 @@ const theme = {
     },
     h5: {
       ...rawTheme.typography.h5,
-      fontSize: 20,
+      fontSize: 16,
       fontWeight: rawTheme.typography.fontWeightLight
     },
     h6: {

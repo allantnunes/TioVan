@@ -25,7 +25,7 @@ const styles = theme => ({
     display: 'block',
     padding: 0,
     borderRadius: 0,
-    height: '40vh',
+    height: '55vh',
     [theme.breakpoints.down('sm')]: {
       width: '100% !important',
       height: 100,
@@ -57,7 +57,8 @@ const styles = theme => ({
   text: {
     position: 'absolute',
     top: '40%',
-    textAlign: 'justify',
+    textAlign:'left',
+    fontSize: '10%',
     color: 'white',
     margin:20,
   },
@@ -105,22 +106,22 @@ function ProductCategories(props) {
   const images = [
     {
       url: quadro1,
-      title: 'Percurso',
-      text: 'O aplicativo fornecerá as rotas mais acessíveis \npara o motorista, de forma dinâmica. ',
+      title: 'PERCURSO',
+      text: 'O aplicativo fornecerá as rotas mais acessíveis para o motorista, de forma dinâmica. nós automatizaremos para que nossa aplicação atenda com o melhor percurso possivel para cada passageiro,facilitando você Motorista para uma melhor trajetoria',
       width: '33%',
     },
     {
       url:
         quadro3,
-        text: 'Otimização do dia do motorista com a administração de presenças das crianças via app.',
-        title: 'Tempo',
+        text: 'Gerencie a entrada e saida de passageiros, seu local de saida e destino final, antecipe se ela ira ao encontro de sua Van, consulte clientes e mapeie tudo com nossa aplicação.',
+        title: 'CLIENTE',
       width: '33%',
     },
     {
       url:
         quadro2,
-        text: 'Ferramenta para gestão de controle de quantidade e presença de passageiros, gerenciamento de rotas e controle de caixa. ',
-        title: 'Gestão',
+        text: 'Tenha uma ferramenta para gestão de controle de caixa digital. ',
+        title: 'FINANCEIRO',
       width: '33%',
     },
   ];
