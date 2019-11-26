@@ -1,5 +1,4 @@
 import React from 'react';
-import Routes from 'react-router-dom';
 import AppBarPortal from '../home/modules/views/AppBarPortal';
 import Despesas from '../../public/img/wallet.png';
 
@@ -12,27 +11,26 @@ export default function Financeiro() {
 
         <div>
             <AppBarPortal />
-            <Link to="#">
-            <div className="containerF1">
-                <div className='contentF1'>
-                    <center><img src={Despesas} alt="Despesas" /></center>
-                    <p>
-                        <strong> DESPESAS </strong>
-                    </p>
+            <Link to="/motorista/financeiro/despesas">
+                <div className="containerF1">
+                    <div className='contentF1'>
+                        <center><img src={Despesas} alt="Despesas" /></center>
+                        <p>
+                            <strong> DESPESAS </strong>
+                        </p>
+                    </div>
                 </div>
-            </div>
             </Link>
-            <div className="containerF1">
-                <div className='contentF1'>
-                    <center><img src={Despesas} alt="Despesas" /></center>
-                    <p>
-                        <strong> DESPESAS </strong>
-                    </p>
-                    <form>
-                        <button className="btnF1" type="button">Custos</button>
-                    </form>
+            <Link to="/motorista/financeiro/mensalidades">
+                <div className="containerF2">
+                    <div className='contentF1'>
+                        <center><img src={Despesas} alt="Despesas" /></center>
+                        <p>
+                            <strong> MENSALIDADES </strong>
+                        </p>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 }

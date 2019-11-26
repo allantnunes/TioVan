@@ -49,8 +49,8 @@ body, input, button {
 
 .contentF1 {
   width: 300px;
-  height: 370px;
-  background: cornsilk;
+  height: 200px;
+  background: rgb(255, 192, 76);
   margin-top: 50px;
   border-radius: 22px;
   padding: 30px;
@@ -62,7 +62,7 @@ body, input, button {
   line-height: 20px;
   margin-bottom: 20px;
   text-align: center;
-
+  color: #1b1613;
 }
 
 .contentF1 form {
@@ -79,39 +79,8 @@ body, input, button {
   
 }
 
-.contentF1 form input{
-  margin-bottom: 20px;
-  border: 1px solid #dddddd;
-  border-radius: 2px;
-  height: 45px;
-  padding: 0 15px;
-  font-size: 16px;
-  
-}
-.contentF1 button.btn{ 
-  
-  border: 0;
-  border-radius: 2px;
-  
-  width: 100px center;
-  height: 42px;
-  padding: 0 20px;
-  font-size: 16px;
-  font-weight: bold;
-  background: #d68a2a;
-  color: #ffffff;
-  cursor: pointer;
-  
-  
-}
 
-.contentF1 button.btn:hover{
-    background: #c4a77d;
-}
-
-
-
-.container2 {
+.containerF2 {
   /* margin: 80px auto 0; */
   /* max-width: 450px; */
   /* width: 100px; */
@@ -121,64 +90,3 @@ body, input, button {
   /* flex-direction: column; */
   /* align-items: center; */
 }
-
-/* .content2 {
-  height: 370px;
-  width: 300px;
-  background: cornsilk;
-  margin-top: 50px;
-  border-radius: 22px;
-  padding: 30px;
-}
-
-.content2 > p  {
-  font-size: 22px;
-  line-height: 20px;
-  margin-bottom: 20px;
-  text-align: center;
-
-}
-
-.content2 form {
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.content2 form label {
-  font-size: 14px;
-  color : #1b1613;
-  font-weight: bold;
-  margin-bottom: 8px;
-  
-}
-
-.content2 form input{
-  margin-bottom: 20px;
-  border: 1px solid #dddddd;
-  border-radius: 2px;
-  height: 45px;
-  padding: 0 15px;
-  font-size: 16px;
-  
-}
-.content2 button.btn2{ 
-  
-  border: 0;
-  border-radius: 2px;
-  margin-top: 13.8%;
-  width: 100px center;
-  height: 42px;
-  padding: 0 20px;
-  font-size: 16px;
-  font-weight: bold;
-  background: #d68a2a;
-  color: #ffffff;
-  cursor: pointer;
-  
-  
-}
-
-.content2 button.btn2:hover{
-    background: #c4a77d;
-} */
