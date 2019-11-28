@@ -18,7 +18,9 @@ export default function portal() {
                     <div className="content1">
                         <center><img src={route} alt="route" /></center>
                         <form>
-                            <button className="btn" type="button">ROTAS</button>
+                            <Link to="/motorista/rotas">
+                                <center><button className="btn" type="button">ROTAS</button></center>
+                            </Link>
                         </form>
                     </div>
                 </div>
@@ -28,7 +30,7 @@ export default function portal() {
                         <center><img src={money} alt="money" /></center>
                         <form>
                             <Link to="/motorista/financeiro">
-                                <button className="btn2" type="button">FINANCEIRO</button>
+                                <center><button className="btn2" type="button">FINANCEIRO</button></center>
                             </Link>
                         </form>
                     </div>
@@ -38,7 +40,9 @@ export default function portal() {
                     <div className='content3'>
                         <center><img src={network} alt="network" /></center>
                         <form>
-                            <button className="btn3" type="button">PERFIS</button>
+                            <Link to="/motorista/clientes">
+                                <center><button className="btn3" type="button">PERFIS</button></center>
+                            </Link>
                         </form>
                     </div>
                 </div>
