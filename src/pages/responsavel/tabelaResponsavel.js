@@ -29,7 +29,7 @@ export default class Tabela extends Component {
     render() {
         return (
             <>
-            <div className="col-10 offset-2">
+            <div className="col-12">
                 <table className="table table-striped table-bordered table-hover table-sm">
                     <thead className="thead-dark text-center">
                         <tr>
