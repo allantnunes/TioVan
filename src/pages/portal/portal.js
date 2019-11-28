@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -24,9 +24,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { fontWeight } from '@material-ui/system';
 import Responsavel from '../responsavel/tabelaResponsavel';
-import Financeiro from '../financeiro/despesas/index';
-import Financeiro2 from '../financeiro/mensalidade/index';
-
+import tiovanTextLogo from '../home/modules/media/tiovan_LOGO_TEXT.svg';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -90,21 +88,19 @@ const useStyles = makeStyles(theme => ({
   },
   typography: {
     flexGrow: 1,
-        align: "center",
-        fontWeight:300
-      }
-    
+    align: "center",
+    fontWeight: 300
+  }
+
 }));
 
 export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -117,10 +113,10 @@ export default function MiniDrawer() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
-        style={{backgroundColor: '#FECB3D'}}
+        style={{ backgroundColor: '#FECB3D' }}
       >
         <Toolbar>
-          <IconButton 
+          <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
@@ -129,11 +125,17 @@ export default function MiniDrawer() {
               [classes.hide]: open,
             })}
           >
-            <MenuIcon fontSize="large"/>
+            <MenuIcon fontSize="large" />
           </IconButton>
-          <Typography align="center" variant="h3" className={classes.typography} noWrap>
-           Tio<span style={{color:'#000' }}>Van</span>
-          </Typography>
+          <Link to="/motorista/portal">
+            <Typography align="center" variant="h3" className={classes.typography} noWrap>
+              <img
+                style={{ display: "block" }}
+                src={tiovanTextLogo}
+                alt="increase priority"
+              />
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -157,31 +159,39 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-        <ListItem button key="Rotas" component="a" href="/">
+          <Link to="/motorista/rotas">
+            <ListItem button key="Rotas" component="a" >
               <ListItemIcon >
                 <AddLocationIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Rotas" />
             </ListItem>
-            <ListItem button key="Financeiro"   component="a" href="/">
+          </Link>
+          <Link to="/motorista/financeiro">
+            <ListItem button key="Financeiro" component="a">
               <ListItemIcon><AttachMoneyIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Financeiro" />
             </ListItem>
-            <ListItem button key="Gestão"   component="a" href="/">
+          </Link>
+          <Link to="/motorista/clientes">
+            <ListItem button key="Gestão" component="a" to="/motorista/clientes">
               <ListItemIcon><AssignmentIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Gestão" />
             </ListItem>
-            <hr/>
-            <ListItem  button key="Sair"  component="a" href="/">      
+          </Link>
+          <hr />
+          <Link to="/">
+            <ListItem button key="Sair" component="a" to="/">
               <ListItemIcon><HighlightOffIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Sair" />
-            </ListItem>            
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Responsavel/>
-        
+        <Responsavel />
+
       </main>
     </div>
   );
-}
+} 
