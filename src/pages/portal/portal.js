@@ -24,6 +24,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { fontWeight } from '@material-ui/system';
 import Responsavel from '../responsavel/tabelaResponsavel';
+import tiovanTextLogo from '../home/modules/media/tiovan_LOGO_TEXT.svg';
 
 const drawerWidth = 240;
 
@@ -94,137 +95,104 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-
-export default function Portal() {
-  return (
-    <div>
-      <div>
-        <AppBarPortal />
-      </div>
-
-      <SideNav style={{ zIndex: "999999" }}
-
-        onSelect={(selected) => {
-          // Add your code here
-        }}
-      >
-        <SideNav.Toggle />
-        <SideNav.Nav defaultSelected="home">
-          <NavItem eventKey="home">
-            <NavIcon>
-              <a href="/motorista/financeiro/despesas">kapa</a>
-            </NavIcon>
-            <NavText>
-              <a href="/motorista/financeiro/despesas">kapa</a>
-            </NavText>
-          </NavItem>
-          <NavItem eventKey="charts">
-            <NavIcon>
-              <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-            </NavIcon>
-            <NavText>
-              Charts
-            </NavText>
-            <NavItem eventKey="charts/linechart">
-              <NavText>
-                Line Chart
-                </NavText>
-            </NavItem>
-            <NavItem eventKey="charts/barchart">
-              <NavText>
-                Bar Chart
-                </NavText>
-            </NavItem>
-          </NavItem>
-        </SideNav.Nav>
-      </SideNav>
-
-      export default function MiniDrawer() {
+export default function MiniDrawer() {
   const classes = useStyles();
-      const theme = useTheme();
-      const [open, setOpen] = React.useState(false);
-    
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-  
+    setOpen(true);
+  };
   const handleDrawerClose = () => {
-        setOpen(false);
-    };
-  
-    return (
+    setOpen(false);
+  };
+
+  return (
     <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-          style={{ backgroundColor: '#FECB3D' }}
-        >
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon fontSize="large" />
-            </IconButton>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+        style={{ backgroundColor: '#FECB3D' }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <MenuIcon fontSize="large" />
+          </IconButton>
+          <Link to="/motorista/portal">
             <Typography align="center" variant="h3" className={classes.typography} noWrap>
-              Tio<span style={{ color: '#000' }}>Van</span>
+              <img
+                style={{ display: "block" }}
+                src={tiovanTextLogo}
+                alt="increase priority"
+              />
             </Typography>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant="permanent"
-          className={clsx(classes.drawer, {
+          </Link>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          })}
-          classes={{
-            paper: clsx({
-              [classes.drawerOpen]: open,
-              [classes.drawerClose]: !open,
-            }),
-          }}
-          open={open}
-        >
-          <div className={classes.toolbar}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-            </IconButton>
-          </div>
-          <Divider />
-          <List>
-            <ListItem button key="Rotas" component="a" href="/">
+          }),
+        }}
+        open={open}
+      >
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          <Link to="/motorista/rotas">
+            <ListItem button key="Rotas" component="a" >
               <ListItemIcon >
                 <AddLocationIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Rotas" />
             </ListItem>
-            <ListItem button key="Financeiro" component="a" href="/">
+          </Link>
+          <Link to="/motorista/financeiro">
+            <ListItem button key="Financeiro" component="a">
               <ListItemIcon><AttachMoneyIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Financeiro" />
             </ListItem>
-            <ListItem button key="Gestão" component="a" href="/">
+          </Link>
+          <Link to="/motorista/clientes">
+            <ListItem button key="Gestão" component="a" to="/motorista/clientes">
               <ListItemIcon><AssignmentIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Gestão" />
             </ListItem>
-            <hr />
-            <ListItem button key="Sair" component="a" href="/">
+          </Link>
+          <hr />
+          <Link to="/">
+            <ListItem button key="Sair" component="a" to="/">
               <ListItemIcon><HighlightOffIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Sair" />
             </ListItem>
-          </List>
-        </Drawer>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Responsavel />
+          </Link>
+        </List>
+      </Drawer>
+      <main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Responsavel />
 
-        </main>
-      </div>
-      );
-}
+      </main>
+    </div>
+  );
+} 
