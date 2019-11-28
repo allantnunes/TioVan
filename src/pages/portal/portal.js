@@ -13,49 +13,49 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import '../portal/Pt.css';
 import zIndex from '@material-ui/core/styles/zIndex';
 
-export default function portal() {
+export default function Portal() {
     return (
-        <div>            
         <div>
-            <AppBarPortal />
-        </div>
+            <div>
+                <AppBarPortal />
+            </div>
 
-        <SideNav style={{zIndex:"999999"}}
+            <SideNav style={{ zIndex: "999999" }}
 
-    onSelect={(selected) => {
-        // Add your code here
-    }}
->
-    <SideNav.Toggle />
-    <SideNav.Nav defaultSelected="home">
-        <NavItem eventKey="home">
-            <NavIcon>
-               <a href="/motorista/financeiro/despesas">kapa</a>
-            </NavIcon>
-            <NavText>
-            <a href="/motorista/financeiro/despesas">kapa</a>
+                onSelect={(selected) => {
+                    // Add your code here
+                }}
+            >
+                <SideNav.Toggle />
+                <SideNav.Nav defaultSelected="home">
+                    <NavItem eventKey="home">
+                        <NavIcon>
+                            <a href="/motorista/financeiro/despesas">kapa</a>
+                        </NavIcon>
+                        <NavText>
+                            <a href="/motorista/financeiro/despesas">kapa</a>
+                        </NavText>
+                    </NavItem>
+                    <NavItem eventKey="charts">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Charts
             </NavText>
-        </NavItem>
-        <NavItem eventKey="charts">
-            <NavIcon>
-                <i className="fa fa-fw fa-line-chart" style={{ fontSize: '1.75em' }} />
-            </NavIcon>
-            <NavText>
-                Charts
-            </NavText>
-            <NavItem eventKey="charts/linechart">
-                <NavText>
-                    Line Chart
+                        <NavItem eventKey="charts/linechart">
+                            <NavText>
+                                Line Chart
                 </NavText>
-            </NavItem>
-            <NavItem eventKey="charts/barchart">
-                <NavText>
-                    Bar Chart
+                        </NavItem>
+                        <NavItem eventKey="charts/barchart">
+                            <NavText>
+                                Bar Chart
                 </NavText>
-            </NavItem>
-        </NavItem>
-    </SideNav.Nav>
-</SideNav>
+                        </NavItem>
+                    </NavItem>
+                </SideNav.Nav>
+            </SideNav>
 
             <div className="container4">
                 <div className="container1">
