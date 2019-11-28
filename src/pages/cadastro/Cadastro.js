@@ -58,13 +58,13 @@ export default class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="nome">Nome</label>
-                                                <input type="text" className="form-control" id="nome" onChange={this.changeHandler} placeholder="Fulano da Silva" />
+                                                <input type="text" required="campo obrigatorio" className="form-control" id="nome" onChange={this.changeHandler} placeholder="Fulano da Silva" />
                                             </div>
                                         </div>
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="apelido">Apelido</label>
-                                                <input type="text" className="form-control" id="apelido" onChange={this.changeHandler} placeholder="Tio Fulano" />
+                                                <input type="text" required="campo obrigatorio" className="form-control" id="apelido" onChange={this.changeHandler} placeholder="Tio Fulano" />
                                             </div>
                                         </div>
 
@@ -73,14 +73,14 @@ export default class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="email">E-mail</label>
-                                                <input type="email" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
+                                                <input type="email"required="campo obrigatorio" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
                                             </div>
                                         </div>
 
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="celular">Celular</label>
-                                                <input type="text" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
+                                                <input type="text"required="campo obrigatorio" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
                                             </div>
                                         </div>
 
@@ -89,13 +89,13 @@ export default class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="cpf">CPF</label>
-                                                <input type="text" className="form-control" id="cpf" onChange={this.changeHandler} placeholder="507.245.798-12" />
+                                                <input type="text" required="campo obrigatorio" className="form-control" id="cpf" onChange={this.changeHandler} placeholder="507.245.798-12" />
                                             </div>
                                         </div>
                                         <div className="col-3">
                                             <div className="form-group">
                                                 <label htmlFor="genero">Gênero</label>
-                                                <select className="form-control" id="genero" onChange={this.changeHandler}>
+                                                <select className="form-control" required="campo obrigatorio" id="genero" onChange={this.changeHandler}>
                                                     <option value="0" selected disabled>Selecionar</option>
                                                     <option value="MASCULINO">Masculino</option>
                                                     <option value="FEMININO">Feminino</option>
@@ -112,13 +112,13 @@ export default class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="senha">Senha</label>
-                                                <input type="password" className="form-control" id="password" onChange={this.changeHandler} placeholder="Digite a senha" />
+                                                <input type="password" required="campo obrigatorio" className="form-control" id="password" onChange={this.changeHandler} placeholder="Digite a senha" />
                                             </div>
                                         </div>
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="senha">Repetir Senha</label>
-                                                <input type="password" className="form-control" id="password" onChange={this.changeHandler} placeholder="Digite a senha novamente" />
+                                                <input type="password" required="campo obrigatorio" className="form-control" id="password" onChange={this.changeHandler} placeholder="Digite a senha novamente" />
                                             </div>
                                         </div>
                                     </div>

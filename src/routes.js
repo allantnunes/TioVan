@@ -7,6 +7,7 @@ import Home from './pages/home/Home';
 import Financeiro from './pages/financeiro/index';
 import Despesas from './pages/financeiro/despesas/index';
 import Mensalidades from './pages/financeiro/mensalidade/index';
+import Portal2 from './pages/portal/portal2';
 
 // import { isAuthenticated } from "./services/auth";
 
@@ -30,6 +31,7 @@ const Routes = () => (
             <Route exact path="/login" component={Login} />
             <Route exact path="/cadastro" component={Cadastro} />
             <Route exact path="/motorista/portal" component={Portal} />
+            <Route exact path="/motorista/portal2" component={Portal2} />
             <Route exact path="/motorista/financeiro" component={Financeiro} />
             <Route exact path="/motorista/financeiro/despesas" component={Despesas} />
             <Route exact path="/motorista/financeiro/mensalidades" component={Mensalidades} />
