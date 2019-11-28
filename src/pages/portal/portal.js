@@ -24,6 +24,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { fontWeight } from '@material-ui/system';
 import Responsavel from '../responsavel/tabelaResponsavel';
+import Financeiro from '../financeiro/despesas/index';
+import Financeiro2 from '../financeiro/mensalidade/index';
 
 const drawerWidth = 240;
 
