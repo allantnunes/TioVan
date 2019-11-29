@@ -33,7 +33,7 @@ body, input, button {
 
 .contentLogin {
   width: 100%;
-  background: #E3A723;
+  background: #FECB3D;
   margin-top: 0px;
   border-radius: 22px;
   padding: 35px;
@@ -69,13 +69,13 @@ body, input, button {
   padding: 0 20px;
   font-size: 16px;
   font-weight: bold;
-  background: rgb(255, 60, 0);
+  background: #0E343B;
   color: #ffff;
   cursor: pointer;
 }
 
 .contentLogin button.btnLogin:hover{
-  background: rgb(255, 0, 0);
+  background: #0E343B;
 }
 
 .logo {

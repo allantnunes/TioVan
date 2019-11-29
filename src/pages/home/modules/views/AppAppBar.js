@@ -44,7 +44,7 @@ const styles = theme => ({
   },
   linkSecondary: {
     textDecoration: "none",
-    color: theme.palette.secondary.main
+    color: theme.palette.primary.dark
   }
 });
 
@@ -79,7 +79,7 @@ function AppAppBar(props) {
               className={classes.rightLink}
               href="/login"
             >
-              {"ENTRA"}
+              {"ENTRAR"}
             </Link>
             <Link
               variant="h6"
@@ -91,7 +91,7 @@ function AppAppBar(props) {
               )}
               href="/cadastro"
             >
-              {"CADASTRO"}
+              {"REGISTRE-SE"}
             </Link>
           </div>
         </Toolbar>
