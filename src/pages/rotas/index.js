@@ -22,6 +22,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Responsavel from '../responsavel/tabelaResponsavel';
 import tiovanTextLogo from '../home/modules/media/tiovan_LOGO_TEXT.svg';
+import Mapa from './mapa';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -92,6 +93,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MiniDrawer() {
+  
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -186,8 +188,7 @@ export default function MiniDrawer() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <h1>salve mAPINHA.JS</h1>
-
+        <Mapa/>        
       </main>
     </div>
   );

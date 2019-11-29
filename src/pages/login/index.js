@@ -20,14 +20,10 @@ export default function Login({ history }) {
                 if (response.status == 204) {
                     alert('erro');
                 } else {
-
-
-                    console.log(_id);
-                    localStorage.setItem('user', _id);
-
+                    localStorage.setItem('user', response.data);
                     console.log(isAuthenticated());
+                    console.log("user no local:" +localStorage.getItem('user'))
                     history.push('/motorista/portal');
-
                 }
 
                 login(response.data._id);

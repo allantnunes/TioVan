@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Responsavel from './CadastroResponsavel';
+import CadDependente from '../dependente/CadastroDependente';
+import Dependente from '../dependente/tabelaDependente';
 const tb = {
     background: '#d2d2d2'
 };
@@ -16,53 +18,57 @@ export default class Tabela extends Component {
         responsaveis: []
     }
     componentDidMount() {
+        //const url = `https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`;
         const url = `https://tiovan.herokuapp.com/responsavel`;
         axios.get(url).then(response => response.data)
             .then((data) => {
                 this.setState({ responsaveis: data })
-                console.log(this.state.responsaveis)
+                console.log("local storage: " + localStorage.getItem('user'));
             })
     }
-
-
     render() {
         return (
             <>
-            <div className="col-12">
-                <table className="table table-striped table-bordered table-hover table-sm">
-                    <thead className="thead-dark text-center">
-                        <tr>
-                            <th colSpan="6">Responsáveis </th>
-                            <th><Responsavel /></th>
-                        </tr>
-                        <tr>
-                            <th scope="col"><i className="fas fa-camera"></i>   </th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Celular</th>
-                            <th scope="col">Endereço</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Ações</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.responsaveis.map(r => (
-                            <tr key={r.id}>
-                                <td scope="row" key={r.id}>{r.length}</td>
-                                <td>{r.nome}&nbsp;</td>
-                                <td>{r.email}&nbsp;</td>
-                                <td>{r.celular}&nbsp;</td>
-
-
-                                <td>{r.ativo}</td>
-                                <td><button>delete</button><button>update</button><button>+ criança</button></td>
+                <div className="col-12">
+                    <div className="table-responsive">
+                    <table className="table table-bordered table-hover table-sm">
+                        <thead className="text-center bordered">
+                            <tr>
+                                <th colSpan="5">Responsáveis </th>
+                                <th><Responsavel /></th>
                             </tr>
-                        ))}
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Celular</th>
+                                <th scope="col">Endereço</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Dependentes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.responsaveis.map(r => (
+                                <>
+                                    <tr key={r.id}>
+                                        <td scope="row">{r.nome}&nbsp;</td>
+                                        <td scope="row">{r.email}&nbsp;</td>
+                                        <td scope="row">{r.celular}&nbsp;</td>
+                                        {(r.endereco != null ? (<td scope="row">{r.endereco.logradouro}, Nº {r.endereco.numero}, {r.endereco.bairro} - {r.endereco.cidade}, {r.endereco.uf}.</td>)
+                                            : (<td scope="row">nenhum endereço cadastrado.</td>))}
+                                        <td scope="row" className="j">{r.ativo}</td>
+                                        <td scope="row" className="d-flex justify-content-center">
+                                            <Dependente res={r}/>
+                                            &nbsp;
+                                            <CadDependente responsavel={r}/>
+                                            </td>
+                                    </tr>
+                                </>
+                            ))}
 
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
             </>
         );
     }

@@ -7,6 +7,7 @@ export default class CadastroResponsavel extends Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
             nome: '',
             genero: '',
@@ -14,25 +15,81 @@ export default class CadastroResponsavel extends Component {
             cpf: '',
             celular: '',
             email: '',
-            motorista:'5ddde3fb5f1511000437a31e'
+            logradouro: '',
+            nomeRua: '',
+            numero: '',
+            complemento: '',
+            cidade: '',
+            bairro: '',
+            uf: '',
+            cep: '',
+            latitude: '',
+            longitude: '',
+            motorista: `${localStorage.getItem('user')}`
         }
     }
     changeHandler = e => {
-        console.log(`${[e.target.id]} : ${e.target.value}`)
         this.setState({ [e.target.id]: e.target.value });
+        console.log(this.state)
     }
 
     submitHandler = e => {
         e.preventDefault();
         console.log(this.state);
-        axios.post('https://tiovan.herokuapp.com/responsavel/cadastro', this.state)
-            .then(response => {
-                console.log(response);
-                window.location.reload(true);
+        var jso = `
+        {
+            "nome":"${this.state.nome}",
+            "genero":"${this.state.genero}",
+            "ativo":"${this.state.ativo}",
+            "cpf":"${this.state.cpf}",
+            "celular":"${this.state.cpf}",
+            "email":"${this.state.email}",
+            "endereco":{
+            "logradouro":"${this.state.logradouro}",
+            "nome":"${this.state.nomeRua}",
+            "numero":${this.state.numero},
+            "complemento":"${this.state.complemento}",
+            "cidade":"${this.state.cidade}",
+            "bairro":"${this.state.bairro}",
+            "uf":"${this.state.uf}",
+            "cep":"${this.state.cpf}",
+            "latitude":"${this.state.latitude}",
+            "longitude":"${this.state.longitude}"},
+            "motorista":"${localStorage.getItem('user')}"
+            }
+        `;
+        console.log(jso);
+         axios.post('https://tiovan.herokuapp.com/responsavel/cadastro', JSON.parse(jso))
+             .then(response => {
+                 console.log(response);
+                 window.location.reload(true);
+             })
+             .catch(error => {
+                 console.log(error)
+             })
+    }
+    getCep = e =>{
+        console.log(`${[e.target.id]}, ${e.target.value}`);
+        const url = `https://viacep.com.br/ws/${e.target.value}/json/`;
+        axios.get(url).then(response => response.data)
+        .then((data)=>{
+            this.state.logradouro = data.logradouro;
+            this.state.bairro = data.bairro;
+            this.state.cidade = data.localidade;
+            this.state.uf = data.uf;
+            this.state.nomeRua = "jojo";
+            document.getElementById('endereco').value=`${data.logradouro}`;
+
+
+        }).then(
+            axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${e.target.value}&key=AIzaSyBWlfCXss-69aRJLtZLvEjoudsXGxJ0S7s`)
+            .then(response =>response.data)
+            .then((data)=>{
+                document.getElementById('endereco').value+=`, ${data.results[0].formatted_address}`;
+                this.state.longitude = data.results[0].geometry.location.lng;
+                this.state.latitude = data.results[0].geometry.location.lat;
             })
-            .catch(error => {
-                console.log(error)
-            })
+            )
     }
 
     render() {
@@ -41,83 +98,100 @@ export default class CadastroResponsavel extends Component {
         return (
             <>
 
-                <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#modalResponsavel">Cadastrar Responsavel</button>
-                
-                <div className="modal fade" id="modalResponsavel" tabIndex="-1" role="dialog" aria-labelledby="modalResponsavelLabel" aria-hidden="true">
+                <button type="button" className="btn btn-dark btn-sm" data-toggle="modal" data-target="#modalResponsavel">Cadastrar Responsavel</button>
+
+                <div className="modal fade text-left" id="modalResponsavel" tabIndex="-1" role="dialog" aria-labelledby="modalResponsavelLabel" aria-hidden="true" style={{ marginTop: '60px' }}>
                     <div className="modal-dialog modal-lg" role="document">
-                        <div className="modal-content">
+                        <div className="modal-content" style={{ color: "#000" }}>
                             <div className="modal-header">
-                                <h5 className="modal-title" id="modalResponsavelLabel">Cadastrar Responsavel</h5>
+                                <h5 className="modal-title" id="modalResponsavelLabel">Cadastrar Responsável</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col-12 m-auto">
+                                    <div className="col-12">
                                         <form onSubmit={this.submitHandler}>
-                                      <div className="container">
-                                      <div className="row">
-                                                <div className="mx-auto">
-                                                    <h1>Cadastrar Responsavel</h1>
-                                                </div>
-                                            </div>
-                                            <div className="form-row">
-                                                <div className="col-5 offset-1">
-                                                    <div className="form-group">
-                                                        <label htmlFor="nome">Nome</label>
-                                                        <input type="text" className="form-control" id="nome" onChange={this.changeHandler} placeholder="Fulano da Silva" />
+                                            <div className="container-fluid">
+                                                <div className="form-row">
+                                                    <div className="col-4">
+                                                        <div className="form-group">
+                                                            <label htmlFor="nome">Nome</label>
+                                                            <input type="text" className="form-control" id="nome" onChange={this.changeHandler} placeholder="Fulano da Silva" />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="col-5">
-                                                    <div className="form-group">
-                                                        <label htmlFor="ativo">Ativo?</label>
-                                                        <input type="text" className="form-control" id="ativo" onChange={this.changeHandler} placeholder="Ativo / Inativo" />
-                                                    </div>
-                                                </div>
 
-                                            </div>
-                                            <div className="form-row">
-                                                <div className="col-5 offset-1">
-                                                    <div className="form-group">
-                                                        <label htmlFor="email">E-mail</label>
-                                                        <input type="email" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
+                                                    <div className="col-4">
+                                                        <div className="form-group">
+                                                            <label htmlFor="email">E-mail</label>
+                                                            <input type="email" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-4">
+                                                        <div className="form-group">
+                                                            <label htmlFor="celular">Celular</label>
+                                                            <input type="text" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                                <div className="col-5">
-                                                    <div className="form-group">
-                                                        <label htmlFor="celular">Celular</label>
-                                                        <input type="text" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
+                                                <div className="form-row">
+                                                    <div className="col-4">
+                                                        <div className="form-group">
+                                                            <label htmlFor="cpf">CPF</label>
+                                                            <input type="text" className="form-control" id="cpf" onChange={this.changeHandler} placeholder="507.245.798-12" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-4">
+                                                        <div className="form-group">
+                                                            <label htmlFor="genero">Gênero</label>
+                                                            <select className="form-control" id="genero" onChange={this.changeHandler}>
+                                                                <option value="0" selected disabled>Selecionar</option>
+                                                                <option value="MASCULINO">Masculino</option>
+                                                                <option value="FEMININO">Feminino</option>
+                                                                <option value="NAO_BINARIO">Não-Binário</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-4">
+                                                        <div className="form-group">
+                                                            <label htmlFor="ativo">Ativo?</label>
+                                                            <input type="text" className="form-control" id="ativo" onChange={this.changeHandler} placeholder="Ativo / Inativo" />
+                                                        </div>
                                                     </div>
                                                 </div>
-
-                                            </div>
-                                            <div className="form-row">
-                                                <div className="col-5 offset-1">
-                                                    <div className="form-group">
-                                                        <label htmlFor="cpf">CPF</label>
-                                                        <input type="text" className="form-control" id="cpf" onChange={this.changeHandler} placeholder="507.245.798-12" />
-                                                    </div>
-                                                </div>
-                                                <div className="col-5">
-                                                    <div className="form-group">
-                                                        <label htmlFor="genero">Gênero</label>
-                                                        <select className="form-control" id="genero" onChange={this.changeHandler}>
-                                                            <option value="0" selected disabled>Selecionar</option>
-                                                            <option value="MASCULINO">Masculino</option>
-                                                            <option value="FEMININO">Feminino</option>
-                                                            <option value="NAO_BINARIO">Não-Binário</option>
-                                                            <option value="OUTRO">Outro</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div> 
-                                      </div>
                                                 <hr />
+                                                <div className="form-row">
+                                                    <div className="col-2">                                           
+                                                        <div className="form-group">
+                                                            <label for="cep">CEP</label>
+                                                            <input type="text" className="form-control" id="cep" onMouseOut={this.getCep} onChange={this.changeHandler} placeholder="cep" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-5">                                           
+                                                        <div className="form-group">
+                                                            <label for="endereco">Endereço</label>
+                                                            <input type="text" className="form-control" id="endereco" placeholder="xxx" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-2">                                           
+                                                        <div className="form-group">
+                                                            <label for="numero">Número</label>
+                                                            <input type="text" className="form-control" id="numero" onChange={this.changeHandler} placeholder="xxx" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-3">                                           
+                                                        <div className="form-group">
+                                                            <label for="complemento">Complemento</label>
+                                                            <input type="text" className="form-control" id="complemento" onChange={this.changeHandler} placeholder="xxx" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr />
                                             <div className="row">
                                                 <div className="mx-auto p-2">
-                                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Fechar</button>&nbsp;&nbsp;
                                                     <button type="submit" className="btn btn-primary" id="btnCadastrar">Cadastrar</button>
                                                 </div>
                                             </div>

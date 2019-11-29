@@ -188,25 +188,9 @@ export default function MiniDrawer() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />
-                <div>
-                    <Link to="/motorista/financeiro/despesas">
-                        <div className="containerF1">
-                            <div className='contentF1'>
-                                <center><img src={Despesas} alt="Despesas" /></center>
-                                <p><strong> DESPESAS </strong></p>
-                            </div>
-                        </div>
-                    </Link>
-                    <Link to="/motorista/financeiro/mensalidades">
-                        <div className="containerF2">
-                            <div className='contentF1'>
-                                <center><img src={Despesas} alt="Despesas" /></center>
-                                <p><strong> MENSALIDADES </strong></p>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
-
+                <center>
+                <iframe width="1240" height="600" src="https://app.powerbi.com/reportEmbed?reportId=4f51a92a-c51b-4f59-a634-24fac5540c3b&autoAuth=true&ctid=2e3290cb-8d40-4058-abe5-02c4f58b87e3&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+                </center>
             </main>
         </div>
     );
