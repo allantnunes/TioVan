@@ -20,12 +20,8 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import { fontWeight } from '@material-ui/system';
 import Responsavel from '../responsavel/tabelaResponsavel';
 import tiovanTextLogo from '../home/modules/media/tiovan_LOGO_TEXT.svg';
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -173,12 +169,12 @@ export default function MiniDrawer() {
               <ListItemText primary="Financeiro" />
             </ListItem>
           </Link>
-          <Link to="/motorista/clientes">
-            <ListItem button key="Gestão" component="a" to="/motorista/clientes">
+          <Link to="/motorista/portal">
+            <ListItem button key="Gestão" component="a">
               <ListItemIcon><AssignmentIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Gestão" />
             </ListItem>
-          </Link>
+            </Link>
           <hr />
           <Link to="/">
             <ListItem button key="Sair" component="a" to="/">

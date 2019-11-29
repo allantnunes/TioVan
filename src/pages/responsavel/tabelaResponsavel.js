@@ -21,7 +21,6 @@ export default class Tabela extends Component {
             .then((data) => {
                 this.setState({ responsaveis: data })
                 console.log(this.state.responsaveis)
-                console.log(this.state.responsaveis[3].ativo)
             })
     }
 
@@ -60,6 +59,7 @@ export default class Tabela extends Component {
                                 <td><button>delete</button><button>update</button><button>+ criança</button></td>
                             </tr>
                         ))}
+
                     </tbody>
                 </table>
             </div>

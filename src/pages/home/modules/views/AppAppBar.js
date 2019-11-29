@@ -44,7 +44,7 @@ const styles = theme => ({
   },
   linkSecondary: {
     textDecoration: "none",
-    color: theme.palette.secondary.main
+    color: theme.palette.primary.dark
   }
 });
 
@@ -91,7 +91,7 @@ function AppAppBar(props) {
               )}
               href="/cadastro"
             >
-              {"CADASTRO"}
+              {"REGISTRE-SE"}
             </Link>
           </div>
         </Toolbar>

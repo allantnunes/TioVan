@@ -6,6 +6,20 @@ import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 import BannerVan from '../media/Composição1.3c.svg';
 import { Link } from 'react-router-dom';
+import MariaLucia from '../media/Maria_lucia.ttf'
+
+const mariaLu = {
+  fontFamily : 'MariaLucia',
+  fontStyle : 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 400,
+  src:`
+    local('MariaLucia'),
+    local('MariaLucia-Regular'),
+    url(${MariaLucia}) format('ttf')
+  ` ,
+  unicodeRange: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
+};
 
 export const styles = theme => ({
   background: {
@@ -32,8 +46,14 @@ export const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(0),
     },
-    fontFamily: 'cursive',
+    fontFamily: 'MariaLucia, cursive',
     right: 20,
+
+  },
+  overrides:{
+    MuiCssBaseline: {
+      '@global':{'@font-face': [mariaLu],}
+    },
   },
   more: {
     marginTop: theme.spacing(2),
@@ -45,6 +65,9 @@ export const styles = theme => ({
   classeDahora:{
   },
 });
+
+
+
 
 function ProductHero(props) {
   const { classes } = props;

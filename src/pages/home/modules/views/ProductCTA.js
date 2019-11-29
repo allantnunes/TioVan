@@ -50,7 +50,7 @@ const styles = theme => ({
   },
   image: {
     position: 'absolute',
-    top: -4,
+    top: -18,
     left: -28,
     right: 0,
     bottom: 0,

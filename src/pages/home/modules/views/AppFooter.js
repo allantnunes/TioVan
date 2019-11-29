@@ -11,9 +11,9 @@ function Copyright() {
     <React.Fragment>
       {'© '}
       <Link color="inherit" href="https://material-ui.com/">
-        tiovan
+        tiovan 
       </Link>{' '}
-      {new Date().getFullYear()}
+      {new Date().getFullYear()} 
     </React.Fragment>
   );
 }
@@ -24,9 +24,10 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.light,
   },
   container: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(8),
+    marginTop: theme.spacing(5.8),
+    marginBottom: theme.spacing(6),
     display: 'flex',
+    textAlign: 'center'
   },
   iconsWrapper: {
     height: 120,
@@ -78,34 +79,14 @@ export default function AppFooter() {
   return (
     <Typography component="footer" className={classes.root}>
       <Container className={classes.container}>
-        <Grid container spacing={5}>
-          <Grid item xs={6} sm={4} md={3}>
-            <Grid
-              container
-              direction="column"
-              justify="flex-end"
-              className={classes.iconsWrapper}
-              spacing={2}
-            >
+        <Grid container spacing={1}>
+          <Grid item xs={1} sm={1} md={12}>
+          <Copyright />
               <Grid item>
-                <Copyright />
+                
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={6} sm={4} md={2}>
-            <Typography variant="h6" marked="left" gutterBottom>
-              Legal
-            </Typography>
-            <ul className={classes.list}>
-              <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/terms/">Terms</Link>
-              </li>
-              <li className={classes.listItem}>
-                <Link href="/premium-themes/onepirate/privacy/">Privacy</Link>
-              </li>
-            </ul>
-          </Grid>
-        </Grid>
       </Container>
     </Typography>
   );
