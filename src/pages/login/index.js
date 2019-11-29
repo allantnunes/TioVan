@@ -3,7 +3,8 @@ import api from '../../services/api';
 import '../login/App.css';
 import AppAppBar from '../home/modules/views/AppAppBar';
 import { Link } from "react-router-dom";
-
+import { isAuthenticated } from "../../services/auth";
+import { login } from "../../services/auth";
 
 export default function Login({ history }) {
 
@@ -16,19 +17,25 @@ export default function Login({ history }) {
 
         const response = await api.post('https://tiovan.herokuapp.com/motorista/login', login)
             .then(response => {
-                console.log(response);
-                _id = response.data;
+                if (response.status == 204) {
+                    alert('erro');
+                } else {
+
+
+                    console.log(_id);
+                    localStorage.setItem('user', _id);
+
+                    console.log(isAuthenticated());
+                    history.push('/motorista/portal');
+
+                }
+
+                login(response.data._id);
+
             })
             .catch(error => {
                 console.log(error)
             })
-
-
-        console.log(_id);
-        // localStorage.setItem('user', _id);
-
-        history.push('/motorista/portal');
-
     }
     return (
         <>
@@ -40,20 +47,18 @@ export default function Login({ history }) {
                     <center><h1>Login</h1></center>
                     <form onSubmit={handleLogin}>
                         <label htmlFor="email">E-mail</label>
-                        <input type="email" id="email" placeholder="E-mail"
+                        <input type="email" id="email" placeholder="Digite o seu e-mail"
                             value={email}
                             onChange={event => getEmail(event.target.value)} />
                         <label htmlFor="senha">Senha</label>
                         <input type="password" id="senha" placeholder="Digite a senha"
                             value={senha}
                             onChange={event => getSenha(event.target.value)} />
-
-
+                        <hr />
                         <center><p>Não é cadastrado? clique <Link to="/motorista/cadastro">aqui</Link></p></center>
 
-                        <Link to="/motorista/portal">
-                            <button type="submit" className="btnLogin">Entrar</button>
-                        </Link>
+                        <button type="submit" className="btnLogin">Entrar</button>
+
                     </form>
                 </div>
             </div>
