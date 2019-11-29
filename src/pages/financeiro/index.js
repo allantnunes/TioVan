@@ -189,7 +189,7 @@ export default function MiniDrawer() {
             <main className={classes.content}>
                 <div className={classes.toolbar} />
                 <center>
-                <iframe width="1240" height="600" src="https://app.powerbi.com/reportEmbed?reportId=4f51a92a-c51b-4f59-a634-24fac5540c3b&autoAuth=true&ctid=2e3290cb-8d40-4058-abe5-02c4f58b87e3&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
+                <iframe width="1340" height="620" src="https://app.powerbi.com/reportEmbed?reportId=4f51a92a-c51b-4f59-a634-24fac5540c3b&autoAuth=true&ctid=2e3290cb-8d40-4058-abe5-02c4f58b87e3&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D" frameborder="0" allowFullScreen="true"></iframe>
                 </center>
             </main>
         </div>
