@@ -68,14 +68,14 @@ export default class Cadastro extends Component {
                                         <div className="col-5 offset-1">
                                             <div className="form-group">
                                                 <label htmlFor="email">E-mail</label>
-                                                <input type="email"required="campo obrigatorio" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
+                                                <input type="email" required="campo obrigatorio" className="form-control" id="email" onChange={this.changeHandler} placeholder="email@exemplo.com" />
                                             </div>
                                         </div>
 
                                         <div className="col-5">
                                             <div className="form-group">
                                                 <label htmlFor="celular">Celular</label>
-                                                <input type="text"required="campo obrigatorio" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
+                                                <input type="text" required="campo obrigatorio" className="form-control" id="celular" onChange={this.changeHandler} placeholder="(11) 4002-8922" />
                                             </div>
                                         </div>
 

@@ -18,11 +18,11 @@ export default function Login({ history }) {
         const response = await api.post('https://tiovan.herokuapp.com/motorista/login', login)
             .then(response => {
                 if (response.status == 204) {
-                    alert('erro');
+                    alert('Login ou senha incorreto');
                 } else {
                     localStorage.setItem('user', response.data);
                     console.log(isAuthenticated());
-                    console.log("user no local:" +localStorage.getItem('user'))
+                    console.log("user no local:" + localStorage.getItem('user'))
                     history.push('/motorista/portal');
                 }
 

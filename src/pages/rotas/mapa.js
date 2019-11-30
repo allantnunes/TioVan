@@ -39,7 +39,7 @@ class mapa extends Component {
                                         <th colSpan="5">Rotas</th>
                                     </tr>
                                     <tr>
-                                        <th scope="col" style={{fontWeight:'bold'}}>#</th>
+                                        <th scope="col" style={{ fontWeight: 'bold' }}>#</th>
                                         <th scope="col">Criança</th>
                                         <th scope="col">Ponto de Descida</th>
                                         <th scope="col">Responsável</th>
@@ -48,25 +48,25 @@ class mapa extends Component {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td scope="row"style={{fontWeight:'bold'}}>1</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>1</td>
                                         <td scope="row">Lucas Silva</td>
                                         <td scope="row">Rua Flora Rei, Nº123</td>
                                         <td scope="row">Mariana Silva</td>
                                     </tr>
                                     <tr>
-                                    <td scope="row"style={{fontWeight:'bold'}}>2</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>2</td>
                                         <td scope="row">Pedro Ferreira</td>
                                         <td scope="row">Escola Estadual Benedicto Rosa</td>
                                         <td scope="row">Tio João</td>
                                     </tr>
                                     <tr>
-                                    <td scope="row"style={{fontWeight:'bold'}}>3</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>3</td>
                                         <td scope="row">Maia Arruda</td>
                                         <td scope="row">Colégio Etapa</td>
                                         <td scope="row">Tia Rosa</td>
                                     </tr>
                                     <tr>
-                                    <td scope="row"style={{fontWeight:'bold'}}>4</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>4</td>
                                         <td scope="row">Felipe Esteves</td>
                                         <td scope="row">Avenida Paulista, Nº365</td>
                                         <td scope="row">Jorge Esteves</td>
