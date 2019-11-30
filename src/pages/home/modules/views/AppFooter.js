@@ -10,10 +10,10 @@ function Copyright() {
   return (
     <React.Fragment>
       {'© '}
-      <Link color="inherit" href="https://material-ui.com/">
-        tiovan 
+      <Link color="inherit" to="https://material-ui.com/">
+        tiovan
       </Link>{' '}
-      {new Date().getFullYear()} 
+      {new Date().getFullYear()}
     </React.Fragment>
   );
 }
@@ -81,12 +81,12 @@ export default function AppFooter() {
       <Container className={classes.container}>
         <Grid container spacing={1}>
           <Grid item xs={1} sm={1} md={12}>
-          <Copyright />
-              <Grid item>
-                
-              </Grid>
+            <Copyright />
+            <Grid item>
+
             </Grid>
           </Grid>
+        </Grid>
       </Container>
     </Typography>
   );

@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { withStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
+import { Link } from 'react-router-dom';
 import AppBar from "../components/AppBar";
 import tiovanTextLogo from "../media/tiovan_LOGO_TEXT.svg";
 import Toolbar, { styles as toolbarStyles } from "../components/Toolbar";
@@ -61,7 +62,7 @@ function AppAppBar(props) {
             underline="none"
             color="inherit"
             className={classes.title}
-            href="/"
+            to="/"
           >
             {
               <img
@@ -77,7 +78,7 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              href="/login"
+              to="/login"
             >
               {"ENTRAR"}
             </Link>
@@ -89,7 +90,7 @@ function AppAppBar(props) {
                 classes.linkSecondary,
                 classes.testeNoLink
               )}
-              href="/cadastro"
+              to="/cadastro"
             >
               {"REGISTRE-SE"}
             </Link>

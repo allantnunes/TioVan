@@ -9,11 +9,11 @@ import { Link } from 'react-router-dom';
 import MariaLucia from '../media/Maria_lucia.ttf'
 
 const mariaLu = {
-  fontFamily : 'MariaLucia',
-  fontStyle : 'normal',
+  fontFamily: 'MariaLucia',
+  fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src:`
+  src: `
     local('MariaLucia'),
     local('MariaLucia-Regular'),
     url(${MariaLucia}) format('ttf')
@@ -50,19 +50,19 @@ export const styles = theme => ({
     right: 20,
 
   },
-  overrides:{
+  overrides: {
     MuiCssBaseline: {
-      '@global':{'@font-face': [mariaLu],}
+      '@global': { '@font-face': [mariaLu], }
     },
   },
   more: {
     marginTop: theme.spacing(2),
   },
   left: {
-    width:'100%',
-    textAlign:'left',
+    width: '100%',
+    textAlign: 'left',
   },
-  classeDahora:{
+  classeDahora: {
   },
 });
 
@@ -77,12 +77,12 @@ function ProductHero(props) {
       {/* Increase the network loading priority of the background image. */}
       <img style={{ display: "none" }} url={{ BannerVan }} />
       <div className={classes.left}>
-      <Typography color="inherit" align="left" variant="h2" className={classes.h5}>
-        Facilite suas viagens
+        <Typography color="inherit" align="left" variant="h2" className={classes.h5}>
+          Facilite suas viagens
       </Typography>
-      <Typography color="inherit" align="left" variant="h2" className={classes.h5_2}>
-        com <spam className={classes.classeDahora}>tiovan</spam>
-      </Typography>
+        <Typography color="inherit" align="left" variant="h2" className={classes.h5_2}>
+          com <spam className={classes.classeDahora}>tiovan</spam>
+        </Typography>
       </div>
 
       <Link to="/cadastro" color="inherit">
@@ -92,7 +92,7 @@ function ProductHero(props) {
           size="large"
           className={classes.button}
           component="a"
-        // href="/cadastro"
+        // to="/cadastro"
         >
           Registre-se
       </Button>
