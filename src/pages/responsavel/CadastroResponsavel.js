@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import AppAppBar from '../home/modules/views/AppAppBar';
 
+var urlMaps = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
+var endereco = '';
+var keyApi = 'AIzaSyC3ip2OLNB1N5VZGqPvzAbQJYaLIUU70A0';
 
 export default class CadastroResponsavel extends Component {
 
@@ -25,6 +28,7 @@ export default class CadastroResponsavel extends Component {
             cep: '',
             latitude: '',
             longitude: '',
+            stringCompleta: '',
             motorista: `${localStorage.getItem('user')}`
         }
     }
@@ -45,29 +49,44 @@ export default class CadastroResponsavel extends Component {
             "celular":"${this.state.cpf}",
             "email":"${this.state.email}",
             "endereco":{
-            "logradouro":"${this.state.logradouro}",
-            "nome":"${this.state.nomeRua}",
-            "numero":${this.state.numero},
-            "complemento":"${this.state.complemento}",
-            "cidade":"${this.state.cidade}",
-            "bairro":"${this.state.bairro}",
-            "uf":"${this.state.uf}",
-            "cep":"${this.state.cpf}",
-            "latitude":"${this.state.latitude}",
-            "longitude":"${this.state.longitude}"},
+                "logradouro":"${this.state.logradouro}",
+                "numero":${this.state.numero},
+                "complemento":"${this.state.complemento}",
+                "cidade":"${this.state.cidade}",
+                "bairro":"${this.state.bairro}",
+                "uf":"${this.state.uf}",
+                "cep":"${this.state.cpf}",
+                "latitude":"${this.state.latitude}",
+                "longitude":"${this.state.longitude}"},
             "motorista":"${localStorage.getItem('user')}"
             }
         `;
         console.log(jso);
-         axios.post('https://tiovan.herokuapp.com/responsavel/cadastro', JSON.parse(jso))
-             .then(response => {
-                 console.log(response);
-                 window.location.reload(true);
-             })
-             .catch(error => {
-                 console.log(error)
-             })
+        axios.get(this.state.stringCompleta)
+            .then((response) => {
+                console.log(response);
+                if(response.data.status === "OK") {
+                    this.state.latitude = response.data.results[0].geometry.location.lat
+                    this.state.longitude = response.data.results[0].geometry.location.lng
+
+                    console.log("latitude: " + this.state.latitude)
+                    console.log("longitude: " + this.state.longitude)
+                    axios.post('https://tiovan.herokuapp.com/responsavel/cadastro', JSON.parse(jso))
+                        .then(response => {
+                            console.log(response);
+                            window.location.reload(true);
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                } else if(response.data.status === "ZERO_RESULTS"){
+                    console.log("Status: "+response.status.toString())
+                    window.alert("Endereço não encontrado!")
+                }
+            })
+
     }
+
     getCep = e =>{
         console.log(`${[e.target.id]}, ${e.target.value}`);
         const url = `https://viacep.com.br/ws/${e.target.value}/json/`;
@@ -80,17 +99,23 @@ export default class CadastroResponsavel extends Component {
             this.state.nomeRua = "jojo";
             document.getElementById('endereco').value=`${data.logradouro}`;
 
+            endereco = `${data.logradouro}+${data.cep}+${data.bairro}+${this.state.numero}`;
 
-        }).then(
-            axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${e.target.value}&key=AIzaSyBWlfCXss-69aRJLtZLvEjoudsXGxJ0S7s`)
+            var enderecoAux = urlMaps + endereco + "&key=" + keyApi;
+
+            this.state.stringCompleta = enderecoAux.replace(/ /g, '+').trim();
+        })}
+
+
+            /*axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${e.target.value}&key=AIzaSyBWlfCXss-69aRJLtZLvEjoudsXGxJ0S7s`)
             .then(response =>response.data)
             .then((data)=>{
                 document.getElementById('endereco').value+=`, ${data.results[0].formatted_address}`;
                 this.state.longitude = data.results[0].geometry.location.lng;
                 this.state.latitude = data.results[0].geometry.location.lat;
-            })
-            )
-    }
+            })*/
+
+
 
     render() {
 
