@@ -14,10 +14,13 @@ class MapContainer extends Component {
             lng: -46.647775
         },
         zoom: 12,
-        clientes: []
+        clientes: [],
+        dependentes: [],
+        itinerarios: []
     };
 
     componentDidMount(){
+        console.log("Montar Lista")
         axios.get(`https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`)
             .then((response)=>{
                 if(response.status == 200){
@@ -29,21 +32,53 @@ class MapContainer extends Component {
                                     console.log(response)
                                     console.log(response.data)
                                     this.setState({
-                                        clientes: this.props.clientes.push(response.data)
+                                        clientes: this.props.clientes.push(response.data),
+                                        itinerarios: this.props.itinerarios.push({lat: response.data.endereco.latitude, lng: response.data.endereco.longitude})
                                     })
                                     console.log("Props clientes")
-                                    console.log(this.props.clientes)
+                                    console.log(this.props.itinerarios)
+
                                 }
                             }
-                        })
+                        })/*.then(()=>{
+                            {this.props.clientes.map((c) =>{
+                                axios.get(`https://tiovan.herokuapp.com/responsavel/getdependentesbyid/${c.id}`).then((response) =>{
+                                    if(response.status == 200){
+                                        if(response.data){
+                                            this.setState({
+                                                dependentes: this.props.dependentes.push(response.data)
+                                            })
+                                        }
+                                    }
+                                })
+                            })}
+                        })*/
                     })
-
                     }
+            }})
+    }
+
+    mostrarMarkers = () => {
+        return this.props.itinerarios.map((localidade, index) => {
+            return <Marker key={index+1} id={index+1} label={(index+1).toString()} position={{
+                lat: localidade.lat,
+                lng: localidade.lng
+            }}
+            >
+                {
+                    this.state.isOpen &&
+
+                    <InfoWindow onCloseClick={() => this.setState({isOpen: false})}>
+                        <div>
+                            <h4>Nome do responsável, talvez</h4>
+                            <span>descrição</span>
+                        </div>
+                    </InfoWindow>
 
                 }
-            })
 
-
+            </Marker>
+        })
     }
 
     render() {
@@ -58,7 +93,7 @@ class MapContainer extends Component {
                                 initialCenter={this.props.center}
                                 defaultZoom={this.props.zoom}
                             >
-
+                                {this.mostrarMarkers()}
                             </Map>
                         </div>
                     </div>
@@ -74,46 +109,9 @@ class MapContainer extends Component {
                                         <th scope="col">Criança</th>
                                         <th scope="col">Ponto de Descida</th>
                                         <th scope="col">Responsável</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td scope="row" style={{ fontWeight: 'bold' }}>1</td>
-                                        <td scope="row">Lucas Silva</td>
-                                        <td scope="row">Rua Flora Rei, Nº123</td>
-                                        <td scope="row">Mariana Silva</td>
-                                    </tr>
-                                    <tr>
-<<<<<<< HEAD
-                                        <td scope="row"style={{fontWeight:'bold'}}>2</td>
-=======
-                                        <td scope="row" style={{ fontWeight: 'bold' }}>2</td>
->>>>>>> 692cb5ecd703b8445652786cdbf58718240764bf
-                                        <td scope="row">Pedro Ferreira</td>
-                                        <td scope="row">Escola Estadual Benedicto Rosa</td>
-                                        <td scope="row">Tio João</td>
-                                    </tr>
-                                    <tr>
-<<<<<<< HEAD
-                                        <td scope="row"style={{fontWeight:'bold'}}>3</td>
-=======
-                                        <td scope="row" style={{ fontWeight: 'bold' }}>3</td>
->>>>>>> 692cb5ecd703b8445652786cdbf58718240764bf
-                                        <td scope="row">Maia Arruda</td>
-                                        <td scope="row">Colégio Etapa</td>
-                                        <td scope="row">Tia Rosa</td>
-                                    </tr>
-                                    <tr>
-<<<<<<< HEAD
-                                        <td scope="row"style={{fontWeight:'bold'}}>4</td>
-=======
-                                        <td scope="row" style={{ fontWeight: 'bold' }}>4</td>
->>>>>>> 692cb5ecd703b8445652786cdbf58718240764bf
-                                        <td scope="row">Felipe Esteves</td>
-                                        <td scope="row">Avenida Paulista, Nº365</td>
-                                        <td scope="row">Jorge Esteves</td>
-                                    </tr>
                                     {this.props.clientes.map((c,i) => (
                                         <tr>
                                             <td scope="row" style={{fontWeight:'bold'}}>{i+1}</td>
@@ -122,7 +120,6 @@ class MapContainer extends Component {
                                             <td scope="row">{c.nome}</td>
                                         </tr>
                                     ))}
-
                                 </tbody>
                             </table>
                         </div>
@@ -132,7 +129,34 @@ class MapContainer extends Component {
         );
     }
 }
-
+/*
+                                    <tr>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>1</td>
+                                        <td scope="row">Lucas Silva</td>
+                                        <td scope="row">Rua Flora Rei, Nº123</td>
+                                        <td scope="row">Mariana Silva</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row"style={{fontWeight:'bold'}}>2</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>2</td>
+                                        <td scope="row">Pedro Ferreira</td>
+                                        <td scope="row">Escola Estadual Benedicto Rosa</td>
+                                        <td scope="row">Tio João</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row"style={{fontWeight:'bold'}}>3</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>3</td>
+                                        <td scope="row">Maia Arruda</td>
+                                        <td scope="row">Colégio Etapa</td>
+                                        <td scope="row">Tia Rosa</td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row"style={{fontWeight:'bold'}}>4</td>
+                                        <td scope="row" style={{ fontWeight: 'bold' }}>4</td>
+                                        <td scope="row">Felipe Esteves</td>
+                                        <td scope="row">Avenida Paulista, Nº365</td>
+                                        <td scope="row">Jorge Esteves</td>
+                                    </tr>*/
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyC3ip2OLNB1N5VZGqPvzAbQJYaLIUU70A0'
 })(MapContainer);
