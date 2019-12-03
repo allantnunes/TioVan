@@ -22,6 +22,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Responsavel from '../responsavel/tabelaResponsavel';
 import tiovanTextLogo from '../home/modules/media/tiovan_LOGO_TEXT.svg';
+import UserIcon from '../../public/img/UserIcon.png';
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -133,6 +134,22 @@ export default function MiniDrawer() {
               />
             </Typography>
           </Link>
+          <Link
+            variant="h6"
+            underline="none"
+            color="inherit"
+            title="Perfil"
+            className={classes.rightLink}
+            to="/motorista/user"
+          >
+            {/* <div style={{float: "right"}}> */}
+              <img
+                style={{ display: "block" }}
+                src={UserIcon}
+                alt="increase priority"
+              />
+            {/* </div> */}
+          </Link>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -174,7 +191,7 @@ export default function MiniDrawer() {
               <ListItemIcon><AssignmentIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Gestão" />
             </ListItem>
-            </Link>
+          </Link>
           <hr />
           <Link to="/">
             <ListItem button key="Sair" component="a" to="/">
