@@ -8,6 +8,7 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 var keyApi = 'AIzaSyC3ip2OLNB1N5VZGqPvzAbQJYaLIUU70A0';
 
 class MapContainer extends Component {
+
     static defaultProps = {
         center: {
             lat: -23.5686879,
@@ -21,10 +22,14 @@ class MapContainer extends Component {
 
     componentDidMount(){
         console.log("Montar Lista")
+
+
         axios.get(`https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`)
             .then((response)=>{
                 if(response.status == 200){
                     console.log("Clientes carregados com sucesso")
+                    this.props.clientes.length = 0;
+                    this.props.itinerarios.length = 0;
                     {response.data[0].clientes.map((c,i) =>{
                         axios.get(`https://tiovan.herokuapp.com/responsavel/getbyid/${c}`).then((response) => {
                             if(response.status == 200){
@@ -66,9 +71,7 @@ class MapContainer extends Component {
             }}
             >
                 {
-                    this.state.isOpen &&
-
-                    <InfoWindow onCloseClick={() => this.setState({isOpen: false})}>
+                    <InfoWindow>
                         <div>
                             <h4>Nome do responsável, talvez</h4>
                             <span>descrição</span>
