@@ -29,12 +29,9 @@ export default class Tabela extends Component {
         const url = `https://tiovan.herokuapp.com/responsavel/getdependentesbyid/${this.props.res.id}`
         axios.get(url).then(response => response.data)
             .then((data) => {
-                console.log(data)
                 this.state.dependentes.length = 0
                 this.props.res.length = 0
                 this.setState({dependentes: data})
-                    console.log("DEPENDENTES")
-                    console.log(this.state.dependentes)
             })
     }
 

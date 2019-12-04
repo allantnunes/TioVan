@@ -174,27 +174,27 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           <Link to="/motorista/rotas">
-            <ListItem button key="Rotas" component="a" >
+            <ListItem button key="Rotas" >
               <ListItemIcon >
                 <AddLocationIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Rotas" />
             </ListItem>
           </Link>
           <Link to="/motorista/financeiro">
-            <ListItem button key="Financeiro" component="a">
+            <ListItem button key="Financeiro">
               <ListItemIcon><AttachMoneyIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Financeiro" />
             </ListItem>
           </Link>
           <Link to="/motorista/portal">
-            <ListItem button key="Gestão" component="a">
+            <ListItem button key="Gestão">
               <ListItemIcon><AssignmentIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Gestão" />
             </ListItem>
           </Link>
           <hr />
           <Link to="/">
-            <ListItem button key="Sair" component="a" to="/">
+            <ListItem button key="Sair">
               <ListItemIcon><HighlightOffIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Sair" />
             </ListItem>

@@ -21,28 +21,19 @@ class MapContainer extends Component {
     };
 
     componentDidMount(){
-        console.log("Montar Lista")
-
-
         axios.get(`https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`)
             .then((response)=>{
                 if(response.status == 200){
-                    console.log("Clientes carregados com sucesso")
                     this.props.clientes.length = 0;
                     this.props.itinerarios.length = 0;
-
                     {response.data[0].clientes.map((c,i) =>{
                         axios.get(`https://tiovan.herokuapp.com/responsavel/getbyid/${c}`).then((response) => {
                             if(response.status == 200){
                                 if(response.data){
-
-                                    console.log(response.data)
                                     this.setState({
                                         clientes: this.props.clientes.push(response.data),
                                         itinerarios: this.props.itinerarios.push({lat: response.data.endereco.latitude, lng: response.data.endereco.longitude})
                                     })
-                                    console.log("Props clientes")
-                                    console.log(this.props.clientes)
 
                                 }
                             }

@@ -30,7 +30,6 @@ export default class Tabela extends Component {
         axios.get(url).then(response => response.data)
             .then((data) => {
                 this.setState({ responsaveis: data })
-                console.log("local storage: " + localStorage.getItem('user'));
             })
     }
 
@@ -38,12 +37,9 @@ export default class Tabela extends Component {
         const url = `https://tiovan.herokuapp.com/responsavel/getdependentesbyid/${r.id}`
         axios.get(url).then(response => response.data)
             .then((data) => {
-                console.log(data)
                 this.state.dependentes.length = 0
                 this.state.responsavelAtual = r.nome
                 this.setState({dependentes: data})
-                console.log("DEPENDENTES")
-                console.log(this.state.dependentes)
             })
     }
 
@@ -71,7 +67,6 @@ export default class Tabela extends Component {
         `;
         axios.post('https://tiovan.herokuapp.com/dependente/cadastro', this.state)
             .then(response => {
-                console.log(response);
                 window.location.reload(true);
             })
             .catch(error => {
@@ -102,9 +97,6 @@ export default class Tabela extends Component {
                         <tbody>
                             {this.state.responsaveis.map((r,i) => (
                                 <>
-                                    {console.log("Responsável "+i)}
-                                    {console.log(r)}
-
                                     <tr key={r.id}>
                                         <td scope="row">{r.nome}&nbsp;</td>
                                         <td scope="row">{r.email}&nbsp;</td>
@@ -112,7 +104,7 @@ export default class Tabela extends Component {
                                         {(r.endereco != null ? (<td scope="row">{r.endereco.logradouro}, Nº {r.endereco.numero}, {r.endereco.bairro} - {r.endereco.cidade}, {r.endereco.uf}.</td>)
                                             : (<td scope="row">nenhum endereço cadastrado.</td>))}
                                         <td scope="row" className="j">{r.ativo}</td>
-                                        <td scope="row" className="d-flex justify-content-center">
+                                        <td scope="row" className="d-flex justify-content-center p-2">
                                             <button type="button" className="btn btn-warning btn-sm" data-toggle="modal"
                                                     data-target="#modalKid" onClick={() => this.listarDependentes(r)}>Listar
                                             </button>
