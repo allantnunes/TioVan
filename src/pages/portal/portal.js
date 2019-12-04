@@ -204,7 +204,6 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Responsavel />
-
       </main>
     </div>
   );

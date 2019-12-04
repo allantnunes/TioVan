@@ -20,9 +20,8 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Responsavel from '../responsavel/tabelaResponsavel';
-import tiovanTextLogo from '../home/modules/media/tiovan_LOGO_TEXT.svg';
-import UserIcon from '../../public/img/UserIcon.png';
+import tiovanTextLogo from '../media/tiovan_LOGO_TEXT.svg';
+import UserIcon from '../../../../public/img/UserIcon.png'
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
@@ -201,13 +200,11 @@ export default function MiniDrawer() {
           </Link>
         </List>
       </Drawer>
-      
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        
-        <h1>Tela do motorista em construção, nos desculpe o incômodo</h1>
+      {/* CONTEÚDO */}
 
-      </main>
+        
+
+      {/* FIM DO CONTEÚDO */}
     </div>
   );
 } 
