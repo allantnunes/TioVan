@@ -17,12 +17,12 @@ class MapContainer extends Component {
         },
         zoom: 12,
         clientes: [],
-        dependentes: []
+        dependentes: [],
+        arrayAuxiliar: []
     };
 
     componentDidMount(){
         console.log("Montar Lista")
-
 
         axios.get(`https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`)
             .then((response)=>{
@@ -35,7 +35,6 @@ class MapContainer extends Component {
                         axios.get(`https://tiovan.herokuapp.com/responsavel/getbyid/${c}`).then((response) => {
                             if(response.status == 200){
                                 if(response.data){
-
                                     console.log(response.data)
                                     this.setState({
                                         clientes: this.props.clientes.push(response.data),
@@ -46,23 +45,32 @@ class MapContainer extends Component {
 
                                 }
                             }
-                        })/*.then(()=>{
-                            {this.props.clientes.map((c) =>{
-                                axios.get(`https://tiovan.herokuapp.com/responsavel/getdependentesbyid/${c.id}`).then((response) =>{
-                                    if(response.status == 200){
-                                        if(response.data){
-                                            this.setState({
-                                                dependentes: this.props.dependentes.push(response.data)
-                                            })
-                                        }
-                                    }
-                                })
-                            })}
-                        })*/
+                        })
                     })
                     }
 
-                }})
+                }}
+                )
+
+    }
+
+    exibirPontosDeParadas(){
+        return(
+
+    this.props.clientes.map((c,i) => (
+        c.dependentes_nome.map((d) => (
+            <tr>
+                <td scope="row" style={{fontWeight:'bold'}}>{i+1}</td>
+                <td scope="row">{d}</td>
+                <td scope="row">{c.endereco.logradouro}, {c.endereco.numero}</td>
+                <td scope="row">{c.nome}</td>
+            </tr>
+            ))
+
+
+        ))
+
+    )
     }
 
     mostrarMarkers = () => {
@@ -83,12 +91,15 @@ class MapContainer extends Component {
                 }
 
             </Marker>
+
+
         })
     }
 
     render() {
         return (
             <>
+                <h2>Mapa - Rotas</h2>
                 <div className="row">
                     <div className="col-8" >
                         <div style={{ height: '85vh', width: '100%' }}>
@@ -99,11 +110,31 @@ class MapContainer extends Component {
                                 defaultZoom={this.props.zoom}
                             >
                                 {this.mostrarMarkers()}
+                                <Marker key={80} id={80} label={"P"} position={{
+                                    lat: -23.5605017,
+                                    lng: -46.6660753
+                                }}
+                                >
+                                </Marker>
                             </Map>
                         </div>
                     </div>
                     <div className="col-4">
                         <div className="table-responsive">
+                            <table className="table table-bordered table-hover table-sm">
+                                <tr>
+                                    <th colSpan="5">Ponto de Partida</th>
+                                </tr>
+                                <tr>
+                                    <th>Instituição</th>
+                                    <th>Endereço</th>
+                                </tr>
+                                <tr>
+                                    <td>Escola Infatil Jardins</td>
+                                    <td>Rua Bela Cintra, 1717</td>
+                                </tr>
+
+                            </table>
                             <table className="table table-bordered table-hover table-sm">
                                 <thead className="text-center bordered">
                                 <tr>
@@ -117,16 +148,7 @@ class MapContainer extends Component {
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {this.props.clientes.map((c,i) => (
-
-                                    <tr>
-                                        <td scope="row" style={{fontWeight:'bold'}}>{i+1}</td>
-                                        <td scope="row">{c.nome}</td>
-                                        <td scope="row">{c.endereco.logradouro}, {c.endereco.numero}</td>
-                                        <td scope="row">{c.nome}</td>
-                                    </tr>
-
-                                ))}
+                                {this.exibirPontosDeParadas()}
                                 </tbody>
                             </table>
                         </div>

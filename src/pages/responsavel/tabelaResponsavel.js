@@ -25,8 +25,8 @@ export default class Tabela extends Component {
         instituicao:''
     }
     componentDidMount() {
-        //const url = `https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`;
-        const url = `https://tiovan.herokuapp.com/responsavel`;
+        const url = `https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`;
+        //const url = `https://tiovan.herokuapp.com/responsavel`;
         axios.get(url).then(response => response.data)
             .then((data) => {
                 this.setState({ responsaveis: data })
@@ -82,6 +82,7 @@ export default class Tabela extends Component {
     render() {
         return (
             <>
+                <h2>Gestão de Pessoas</h2>
                 <div className="col-12">
                     <div className="table-responsive">
                     <table className="table table-bordered table-hover table-sm">
@@ -100,7 +101,7 @@ export default class Tabela extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.responsaveis.map((r,i) => (
+                            {this.state.responsaveis.slice(1).map((r,i) => (
                                 <>
                                     {console.log("Responsável "+i)}
                                     {console.log(r)}
@@ -130,6 +131,11 @@ export default class Tabela extends Component {
                                                             <div className="col-12">
                                                                 <table className="table table-striped table-bordered table-hover table-sm">
                                                                     <tbody>
+                                                                    <tr>
+                                                                        <th scope="col">Nome</th>
+                                                                        <th scope="col">Status</th>
+                                                                        <th scope="col">Instituição</th>
+                                                                    </tr>
                                                                     {this.state.dependentes != [] ? this.state.dependentes.map(d => (
 
                                                                         <tr key={d.id} id={d.responsavel}>

@@ -24,6 +24,7 @@ export default class Cadastro extends Component {
         axios.post('https://tiovan.herokuapp.com/motorista/cadastro', this.state)
             .then(response => {
                 console.log(response);
+                window.location.reload(true);
             })
             .catch(error => {
                 console.log(error)
@@ -32,7 +33,7 @@ export default class Cadastro extends Component {
 
     render() {
 
-        const { nome, apelido, email, numCelular, cpf, genero } = this.state
+        const { nome, apelido, email, numCelular, cpf, genero, senha } = this.state
         return (
             <>
 
