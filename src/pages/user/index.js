@@ -201,6 +201,7 @@ export default function MiniDrawer() {
           </Link>
         </List>
       </Drawer>
+      
       <main className={classes.content}>
         <div className={classes.toolbar} />
         
