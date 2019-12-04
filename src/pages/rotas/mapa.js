@@ -22,26 +22,28 @@ class MapContainer extends Component {
     };
 
     componentDidMount(){
+<<<<<<< HEAD
         console.log("Montar Lista")
 
+=======
+>>>>>>> c6829bbe472636f3127e68e499f90a8b8944273e
         axios.get(`https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`)
             .then((response)=>{
                 if(response.status == 200){
-                    console.log("Clientes carregados com sucesso")
                     this.props.clientes.length = 0;
                     this.props.itinerarios.length = 0;
-
                     {response.data[0].clientes.map((c,i) =>{
                         axios.get(`https://tiovan.herokuapp.com/responsavel/getbyid/${c}`).then((response) => {
                             if(response.status == 200){
                                 if(response.data){
+<<<<<<< HEAD
                                     console.log(response.data)
+=======
+>>>>>>> c6829bbe472636f3127e68e499f90a8b8944273e
                                     this.setState({
                                         clientes: this.props.clientes.push(response.data),
                                         itinerarios: this.props.itinerarios.push({lat: response.data.endereco.latitude, lng: response.data.endereco.longitude})
                                     })
-                                    console.log("Props clientes")
-                                    console.log(this.props.clientes)
 
                                 }
                             }

@@ -206,7 +206,7 @@ export default class CadastroResponsavel extends Component {
                                                 <div className="form-row">
                                                     <div className="col-2">
                                                         <div className="form-group">
-                                                            <label for="cep">CEP</label>
+                                                            <label htmlFor="cep">CEP</label>
                                                             <input type="text" className="form-control" id="cep"
                                                                    onMouseOut={this.getCep}
                                                                    onChange={this.changeHandler} placeholder="cep"/>

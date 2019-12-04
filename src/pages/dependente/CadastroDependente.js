@@ -17,7 +17,6 @@ export default class CadastroDependente extends Component {
     }
     changeHandler = e => {
         this.setState({ [e.target.id]: e.target.value });
-        console.log(this.state)
     }
 
     submitHandler = e => {
@@ -33,7 +32,6 @@ export default class CadastroDependente extends Component {
         `;
          axios.post('https://tiovan.herokuapp.com/dependente/cadastro', this.state)
              .then(response => {
-                 console.log(response);
                  window.location.reload(true);
              })
              .catch(error => {

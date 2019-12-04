@@ -22,7 +22,6 @@ export default function Login({ history }) {
                 } else {
                     localStorage.setItem('user', response.data);
                     console.log(isAuthenticated());
-                    console.log("user no local:" + localStorage.getItem('user'))
                     history.push('/motorista/portal');
                 }
 
