@@ -134,7 +134,7 @@ export default function MiniDrawer() {
               />
             </Typography>
           </Link>
-          <Link
+          {/* <Link
             variant="h6"
             underline="none"
             color="inherit"
@@ -142,14 +142,14 @@ export default function MiniDrawer() {
             className={classes.rightLink}
             to="/motorista/user"
           >
-            {/* <div style={{float: "right"}}> */}
+            <div style={{float: "right"}}>
               <img
                 style={{ display: "block" }}
                 src={UserIcon}
                 alt="increase priority"
               />
-            {/* </div> */}
-          </Link>
+            </div>
+          </Link> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -193,7 +193,7 @@ export default function MiniDrawer() {
             </ListItem>
           </Link>
           <hr />
-          <Link to="/">
+          <Link to="/logout">
             <ListItem button key="Sair">
               <ListItemIcon><HighlightOffIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Sair" />
