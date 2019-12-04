@@ -193,7 +193,7 @@ export default function MiniDrawer() {
             </ListItem>
           </Link>
           <hr />
-          <Link to="/logout">
+          <Link to="/login">
             <ListItem button key="Sair">
               <ListItemIcon><HighlightOffIcon fontSize="large" /></ListItemIcon>
               <ListItemText primary="Sair" />
