@@ -22,7 +22,6 @@ export default class CadastroDependente extends Component {
 
     submitHandler = e => {
         e.preventDefault();
-        console.log(this.state);
         var jso = `
         {
             "nome":"${this.state.nome}",
@@ -54,7 +53,7 @@ export default class CadastroDependente extends Component {
                     <div className="modal-dialog modal-lg" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="modalDependenteLabel">Cadastrar Dependente</h5>
+                                <h5 className="modal-title" id="modalDependenteLabel">Cadastrar Dependente para {this.props.responsavel.nome}</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

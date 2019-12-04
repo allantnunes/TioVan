@@ -15,7 +15,14 @@ const tr = {
 //  <Tabela data={dados} />
 export default class Tabela extends Component {
     state = {
-        responsaveis: []
+        responsaveis: [],
+        dependentes: [],
+        responsavelAtual: "",
+        nome: '',
+        genero: '',
+        ativo: '',
+        responsavel: [],
+        instituicao:''
     }
     componentDidMount() {
         //const url = `https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`;
@@ -26,6 +33,52 @@ export default class Tabela extends Component {
                 console.log("local storage: " + localStorage.getItem('user'));
             })
     }
+
+    listarDependentes(r) {
+        const url = `https://tiovan.herokuapp.com/responsavel/getdependentesbyid/${r.id}`
+        axios.get(url).then(response => response.data)
+            .then((data) => {
+                console.log(data)
+                this.state.dependentes.length = 0
+                this.state.responsavelAtual = r.nome
+                this.setState({dependentes: data})
+                console.log("DEPENDENTES")
+                console.log(this.state.dependentes)
+            })
+    }
+
+    definirResponsavelDoDependente(r){
+        this.setState({
+            responsavel: [`${r.id}`],
+            responsavelAtual: r.nome
+        })
+    }
+
+    changeHandler = e => {
+        this.setState({ [e.target.id]: e.target.value });
+    }
+
+    submitHandler = e => {
+        e.preventDefault();
+        var jso = `
+        {
+            "nome":"${this.state.nome}",
+            "genero":"${this.state.genero}",
+            "ativo":"${this.state.ativo}",
+            "responsavel":["${this.props.responsavel}"],
+            "instituicao":"${this.state.instituicao}"
+            }
+        `;
+        axios.post('https://tiovan.herokuapp.com/dependente/cadastro', this.state)
+            .then(response => {
+                console.log(response);
+                window.location.reload(true);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     render() {
         return (
             <>
@@ -47,8 +100,11 @@ export default class Tabela extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.state.responsaveis.map(r => (
+                            {this.state.responsaveis.map((r,i) => (
                                 <>
+                                    {console.log("Responsável "+i)}
+                                    {console.log(r)}
+
                                     <tr key={r.id}>
                                         <td scope="row">{r.nome}&nbsp;</td>
                                         <td scope="row">{r.email}&nbsp;</td>
@@ -57,9 +113,146 @@ export default class Tabela extends Component {
                                             : (<td scope="row">nenhum endereço cadastrado.</td>))}
                                         <td scope="row" className="j">{r.ativo}</td>
                                         <td scope="row" className="d-flex justify-content-center">
-                                            <Dependente res={r}/>
+                                            <button type="button" className="btn btn-warning btn-sm" data-toggle="modal"
+                                                    data-target="#modalKid" onClick={() => this.listarDependentes(r)}>Listar
+                                            </button>
+                                            <div className="modal fade text-left" id="modalKid" tabIndex="-1" role="dialog"
+                                                 aria-labelledby="modalKidLabel" aria-hidden="true" style={{marginTop: '60px'}}>
+                                                <div className="modal-dialog modal-lg" role="document">
+                                                    <div className="modal-content">
+                                                        <div className="modal-header">
+                                                            <h5 className="modal-title" id="modalKidLabel">Dependentes de {this.state.responsavelAtual}</h5>
+                                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div className="modal-body" style={{color: "#000"}}>
+                                                            <div className="col-12">
+                                                                <table className="table table-striped table-bordered table-hover table-sm">
+                                                                    <tbody>
+                                                                    {this.state.dependentes != [] ? this.state.dependentes.map(d => (
+
+                                                                        <tr key={d.id} id={d.responsavel}>
+                                                                            <td scope="row">{d.nome}&nbsp;</td>
+                                                                            <td scope="row">{d.ativo}</td>
+                                                                            <td scope="row">{d.instituicao}</td>
+                                                                        </tr>
+
+                                                                    )) : console.log("Sem dependentes")}
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             &nbsp;
-                                            <CadDependente responsavel={r}/>
+
+                                            <button type="button" className="btn btn-success btn-sm" data-toggle="modal"
+                                                    data-target="#modalDependente" onClick={() => this.definirResponsavelDoDependente(r)}>Novo
+                                            </button>
+
+                                            <div className="modal fade text-left" id="modalDependente" tabIndex="-1"
+                                                 role="dialog" aria-labelledby="modalDependenteLabel" aria-hidden="true"
+                                                 style={{marginTop: '60px'}}>
+                                                <div className="modal-dialog modal-lg" role="document">
+                                                    <div className="modal-content">
+                                                        <div className="modal-header">
+                                                            <h5 className="modal-title"
+                                                                id="modalDependenteLabel">Cadastrar Dependente para {this.state.responsavelAtual}</h5>
+                                                            <button type="button" className="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div className="modal-body" style={{color: "#000"}}>
+                                                            <div className="row">
+                                                                <div className="col-12">
+                                                                    <form onSubmit={this.submitHandler}>
+                                                                        <div className="container-fluid">
+                                                                            <div className="form-row">
+                                                                                <div className="col-4">
+                                                                                    <div className="form-group">
+                                                                                        <label
+                                                                                            htmlFor="nome">Nome</label>
+                                                                                        <input type="text"
+                                                                                               className="form-control"
+                                                                                               id="nome"
+                                                                                               onChange={this.changeHandler}
+                                                                                               placeholder="Fulano da Silva"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="col-4">
+                                                                                    <div className="form-group">
+                                                                                        <label
+                                                                                            htmlFor="genero">Gênero</label>
+                                                                                        <select className="form-control"
+                                                                                                id="genero"
+                                                                                                onChange={this.changeHandler}>
+                                                                                            <option value="0" selected
+                                                                                                    disabled>Selecionar
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="MASCULINO">Masculino
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="FEMININO">Feminino
+                                                                                            </option>
+                                                                                            <option
+                                                                                                value="NAO_BINARIO">Não-Binário
+                                                                                            </option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="col-4">
+                                                                                    <div className="form-group">
+                                                                                        <label
+                                                                                            htmlFor="ativo">Ativo?</label>
+                                                                                        <input type="text"
+                                                                                               className="form-control"
+                                                                                               id="ativo"
+                                                                                               onChange={this.changeHandler}
+                                                                                               placeholder="Ativo / Inativo"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="form-row">
+                                                                                <div className="col-10 offset-1">
+                                                                                    <div className="form-group">
+                                                                                        <label
+                                                                                            htmlFor="instituicao">Instituição</label>
+                                                                                        <input type="text"
+                                                                                               className="form-control"
+                                                                                               id="instituicao"
+                                                                                               onChange={this.changeHandler}
+                                                                                               placeholder="Bandtec Digital School"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr/>
+                                                                        <div className="row">
+                                                                            <div className="mx-auto p-2">
+                                                                                <button type="button"
+                                                                                        className="btn btn-secondary"
+                                                                                        data-dismiss="modal">Fechar
+                                                                                </button>
+                                                                                &nbsp;&nbsp;
+                                                                                <button type="submit"
+                                                                                        className="btn btn-primary"
+                                                                                        id="btnCadastrar">Cadastrar
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             </td>
                                     </tr>
                                 </>

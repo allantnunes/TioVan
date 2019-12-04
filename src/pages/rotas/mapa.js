@@ -10,14 +10,14 @@ var keyApi = 'AIzaSyC3ip2OLNB1N5VZGqPvzAbQJYaLIUU70A0';
 class MapContainer extends Component {
 
     static defaultProps = {
+        itinerarios: [],
         center: {
             lat: -23.5686879,
             lng: -46.647775
         },
         zoom: 12,
         clientes: [],
-        dependentes: [],
-        itinerarios: []
+        dependentes: []
     };
 
     componentDidMount(){
@@ -30,18 +30,19 @@ class MapContainer extends Component {
                     console.log("Clientes carregados com sucesso")
                     this.props.clientes.length = 0;
                     this.props.itinerarios.length = 0;
+
                     {response.data[0].clientes.map((c,i) =>{
                         axios.get(`https://tiovan.herokuapp.com/responsavel/getbyid/${c}`).then((response) => {
                             if(response.status == 200){
                                 if(response.data){
-                                    console.log(response)
+
                                     console.log(response.data)
                                     this.setState({
                                         clientes: this.props.clientes.push(response.data),
                                         itinerarios: this.props.itinerarios.push({lat: response.data.endereco.latitude, lng: response.data.endereco.longitude})
                                     })
                                     console.log("Props clientes")
-                                    console.log(this.props.itinerarios)
+                                    console.log(this.props.clientes)
 
                                 }
                             }
@@ -60,7 +61,8 @@ class MapContainer extends Component {
                         })*/
                     })
                     }
-            }})
+
+                }})
     }
 
     mostrarMarkers = () => {
@@ -104,25 +106,27 @@ class MapContainer extends Component {
                         <div className="table-responsive">
                             <table className="table table-bordered table-hover table-sm">
                                 <thead className="text-center bordered">
-                                    <tr>
-                                        <th colSpan="5">Rotas</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col" style={{ fontWeight: 'bold' }}>#</th>
-                                        <th scope="col">Criança</th>
-                                        <th scope="col">Ponto de Descida</th>
-                                        <th scope="col">Responsável</th>
-                                    </tr>
+                                <tr>
+                                    <th colSpan="5">Rotas</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col" style={{ fontWeight: 'bold' }}>#</th>
+                                    <th scope="col">Criança</th>
+                                    <th scope="col">Ponto de Descida</th>
+                                    <th scope="col">Responsável</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    {this.props.clientes.map((c,i) => (
-                                        <tr>
-                                            <td scope="row" style={{fontWeight:'bold'}}>{i+1}</td>
-                                            <td scope="row">{c.nome}</td>
-                                            <td scope="row">{c.endereco.logradouro}, {c.endereco.numero}</td>
-                                            <td scope="row">{c.nome}</td>
-                                        </tr>
-                                    ))}
+                                {this.props.clientes.map((c,i) => (
+
+                                    <tr>
+                                        <td scope="row" style={{fontWeight:'bold'}}>{i+1}</td>
+                                        <td scope="row">{c.nome}</td>
+                                        <td scope="row">{c.endereco.logradouro}, {c.endereco.numero}</td>
+                                        <td scope="row">{c.nome}</td>
+                                    </tr>
+
+                                ))}
                                 </tbody>
                             </table>
                         </div>
