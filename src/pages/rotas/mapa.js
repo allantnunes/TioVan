@@ -22,11 +22,8 @@ class MapContainer extends Component {
     };
 
     componentDidMount(){
-<<<<<<< HEAD
         console.log("Montar Lista")
 
-=======
->>>>>>> c6829bbe472636f3127e68e499f90a8b8944273e
         axios.get(`https://tiovan.herokuapp.com/motorista/getclientesbyid/${localStorage.getItem('user')}`)
             .then((response)=>{
                 if(response.status == 200){
@@ -36,10 +33,7 @@ class MapContainer extends Component {
                         axios.get(`https://tiovan.herokuapp.com/responsavel/getbyid/${c}`).then((response) => {
                             if(response.status == 200){
                                 if(response.data){
-<<<<<<< HEAD
                                     console.log(response.data)
-=======
->>>>>>> c6829bbe472636f3127e68e499f90a8b8944273e
                                     this.setState({
                                         clientes: this.props.clientes.push(response.data),
                                         itinerarios: this.props.itinerarios.push({lat: response.data.endereco.latitude, lng: response.data.endereco.longitude})

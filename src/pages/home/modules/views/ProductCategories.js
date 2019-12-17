@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
-import '../media/corretion.css'
+import '../media/corretion.css';
 import quadro3 from '../media/quadro3.jpg';
 import quadro1 from '../media/quadro1.jpg';
 import quadro2 from '../media/quadro2.jpg';

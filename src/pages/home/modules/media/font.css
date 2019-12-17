@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "MariaL";
+  src: url("Maria_lucia.ttf") format("truetype"),
+  url('../media/Maria_lucia.ttf') format("truetype");
+}

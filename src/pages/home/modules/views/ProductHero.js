@@ -6,7 +6,8 @@ import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 import BannerVan from '../media/Composição1.3c.svg';
 import { Link } from 'react-router-dom';
-import MariaLucia from '../media/Maria_lucia.ttf'
+import MariaLucia from '../media/Maria_lucia.ttf';
+import '../media/font.css';
 
 const mariaLu = {
   fontFamily: 'MariaLucia',
@@ -38,7 +39,7 @@ export const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(-19),
     },
-    fontFamily: 'cursive',
+    fontFamily: 'MariaL, cursive',
     right: 20,
   },
   h5_2: {
@@ -46,7 +47,7 @@ export const styles = theme => ({
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing(0),
     },
-    fontFamily: 'MariaLucia, cursive',
+    fontFamily: 'MariaL, cursive',
     right: 20,
 
   },
